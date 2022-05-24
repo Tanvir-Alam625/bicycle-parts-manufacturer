@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "16-in-1-Multi-Function-Bike-Bicycle-Mechanic-Repair-Tool-Kit",
+    "img": "https://i.ibb.co/X5y7MHn/16-in-1-Multi-Function-Bike-Bicycle-Mechanic-Repair-Tool-Kit.jpg",
+    "description": "Built to Last --- WOTOW 16 in 1 multi tool is made by Chrome-Vanadium Steel, corrosion resistant and capable of withstanding high amount of turning force when in use.",
+    "price": 100,
+    "minimumQuantity": 100
+  },
+  {
+    "id": 2,
+    "name": "Bicycle-Short-Handlebar-Stem-Wake-Aluminium",
+    "img": "https://i.ibb.co/3dCQX6k/Bicycle-Short-Handlebar-Stem-Wake-Aluminium.jpg",
+    "description": "Short Handlebar Stem for Most Bicycle Color: Sky Blue Main Material: Aluminium Size: 31.8mm Handlebar diameter: 25.4mm Four bolt bar clamp holds bar securely in position",
+    "price": 70,
+    "minimumQuantity": 250
+  },
+  {
+    "id": 3,
+    "name": "Bike-Mobile-Holder",
+    "img": "https://i.ibb.co/511H8BM/Bike-Mobile-Holder.jpg",
+    "description": "Simple and secure lock. Anti-fall & Anti-shake & Anti-vibration. Talons design, avoid pressing the volume key and power key frequently.",
+    "price": 122,
+    "minimumQuantity": 100
+  },
+  {
+    "id": 4,
+    "name": "Soft-Bicycle-Seat-Cover-Black",
+    "img": "https://i.ibb.co/27GV5SS/Soft-Bicycle-Seat-Cover-Black.jpg",
+    "description": "Specifically designed to eliminate pressure points on sensitive parts for optimal comfort while riding Anti-slip gripping material ensure a secure and stable fit. Allow the bike seat cover to mold to your individual shape and absorb the shock of your ride  Suitable for most kinds of bikes",
+    "price": 200,
+    "minimumQuantity": 50
+  },
+  {
+    "id": 5,
+    "name": "Universal-bicycle-bell",
+    "img": "https://i.ibb.co/Wzzxt63/Universal-bicycle-bell.jpg",
+    "description": "Mounts anywhere on your bike without hardware Can be turned 360 Degrees Aluminum Construction Reusable Clamp Fantastic Ping Sound ",
+    "price": 50,
+    "minimumQuantity": 150
+  }
+]

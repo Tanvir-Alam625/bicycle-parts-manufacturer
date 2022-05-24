@@ -7,28 +7,30 @@ const Header = () => {
     <>
       <li
         className={`rounded-lg  font-bold ${
-          location.pathname === "/" ? "text-secondary" : "text-accent"
+          location.pathname === "/" ? "text-secondary" : "text-base-100"
         }`}
       >
         <Link to="/">Home</Link>
       </li>
       <li
         className={`rounded-lg  font-bold ${
-          location.pathname === "/blog" ? "text-secondary" : "text-accent"
+          location.pathname === "/blog" ? "text-secondary" : "text-base-100"
         }`}
       >
         <Link to="/blog">Blog</Link>
       </li>
       <li
         className={`rounded-lg  font-bold ${
-          location.pathname === "/portfolio" ? "text-secondary" : "text-accent"
+          location.pathname === "/portfolio"
+            ? "text-secondary"
+            : "text-base-100"
         }`}
       >
         <Link to="/portfolio">Portfolio</Link>
       </li>
       <li
         className={`rounded-lg  font-bold ${
-          location.pathname === "/login" ? "text-secondary" : "text-accent"
+          location.pathname === "/login" ? "text-secondary" : "text-base-100"
         }`}
       >
         <Link to="/login">Login</Link>

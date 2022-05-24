@@ -9,7 +9,7 @@ import Protfolio from "./components/Protfolio/Protfolio";
 
 function App() {
   return (
-    <div className="">
+    <div className="bg-slate-100 font-mono">
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
