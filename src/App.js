@@ -1,24 +1,24 @@
-import logo from "./logo.svg";
 import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import Home from "./components/Home/Home";
+import Blog from "./components/Blog/Blog";
+import Login from "./components/Login/Login";
+import Protfolio from "./components/Protfolio/Protfolio";
 
 function App() {
   return (
-    <div className="App">
-      <div class="card w-96 bg-base-100 shadow-xl">
-        <figure>
-          <img
-            src="https://api.lorem.space/image/shoes?w=400&h=225"
-            alt="Shoes"
-          />
-        </figure>
-        <div class="card-body">
-          <h2 class="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div class="card-actions justify-end">
-            <button class="btn btn-primary">Buy Now</button>
-          </div>
-        </div>
-      </div>
+    <div className="">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/portfolio" element={<Protfolio />} />
+      </Routes>
+
+      <Footer />
     </div>
   );
 }
