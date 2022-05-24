@@ -10,7 +10,7 @@ const Footer = () => {
     <footer
       className="bg"
       style={{
-        backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.6) 0%, rgba(0, 212, 255,0.5) 35%, rgba(130,15,192,0.7) 100%),url(${Background})`,
+        backgroundImage: `linear-gradient(90deg, rgba(2,0,36,0.8) 0%, rgba(0, 212, 255,0.8) 35%, rgba(130,15,192,0.9) 100%),url(${Background})`,
         backgroundSize: "cover",
       }}
     >

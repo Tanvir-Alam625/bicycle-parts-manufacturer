@@ -40,6 +40,12 @@
   left: 0;
   border-radius: 0 20px 20px 0;
 }
+.subscribe-container {
+  background-image: linear-gradient(rgba(55, 66, 66, 0.5), rgba(0, 0, 0, 0.322)),
+    url(".//image/robert-bye-tG36rvCeqng-unsplash\ \(1\).jpg");
+  background-size: cover;
+  object-fit: cover;
+}
 
 @keyframes App-logo-spin {
   from {
