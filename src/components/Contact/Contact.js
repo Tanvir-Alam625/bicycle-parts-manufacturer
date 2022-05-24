@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div className="mx-auto  max-w-[1100px] my-12 ">
+    <div className="mx-auto  max-w-[1100px] my-12  px-2">
       <h1 className="section-header text-start text-4xl font-bold text-secondary">
         Get In Touch
       </h1>

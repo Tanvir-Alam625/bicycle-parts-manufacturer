@@ -13,7 +13,7 @@ const Partses = () => {
     navigate(`/purchase/${id}`);
   };
   return (
-    <section className="lg:my-12 my-6 max-w-[1100px] mx-auto">
+    <section className="lg:my-12 my-6 max-w-[1100px] mx-auto px-2">
       <h2 className="section-header text-start text-4xl font-bold text-secondary">
         Ours Parts
       </h2>

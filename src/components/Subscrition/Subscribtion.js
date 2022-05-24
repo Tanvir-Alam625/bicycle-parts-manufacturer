@@ -2,7 +2,7 @@ import React from "react";
 import Background from "../../image/robert-bye-tG36rvCeqng-unsplash (1).jpg";
 const Subscribtion = () => {
   return (
-    <section className="subscribe-container   h-[400px] w-full flex flex-col justify-center items-center  font-mono">
+    <section className="subscribe-container   h-[400px] w-full flex flex-col justify-center items-center  font-mono px-2">
       <h1 className="text-center text-3xl font-bold text-secondary md:text-4xl lg:text-6xl mb-4">
         SubScribe Now
       </h1>
