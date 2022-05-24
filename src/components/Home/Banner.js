@@ -1,8 +1,8 @@
 import React from "react";
 import slider1 from "../../image/alessio-soggetti-JQGGf6OuIdQ-unsplash.jpg";
-import slider2 from "../../image/cesar-carlevarino-aragon-NL_DF0Klepc-unsplash.jpg";
-import slider3 from "../../image/robert-bye-tG36rvCeqng-unsplash.jpg";
-import slider4 from "../../image/tom-conway-0dtQVPebr0Q-unsplash.jpg";
+import slider2 from "../../image/cesar-carlevarino-aragon-NL_DF0Klepc-unsplash (1).jpg";
+import slider3 from "../../image/robert-bye-tG36rvCeqng-unsplash (1).jpg";
+import slider4 from "../../image/tom-conway-0dtQVPebr0Q-unsplash (1).jpg";
 import { MinusSmIcon } from "@heroicons/react/solid";
 
 const Banner = () => {
