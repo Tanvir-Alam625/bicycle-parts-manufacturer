@@ -51,7 +51,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to="/" class="btn btn-ghost normal-case text-xl text-secondary">
-            BiCycle Parts
+            Bi-Cycle Parts
           </Link>
         </div>
         <div class="navbar-end hidden lg:flex">
