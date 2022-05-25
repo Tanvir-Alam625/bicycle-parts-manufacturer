@@ -7,6 +7,7 @@ import Blog from "./components/Blog/Blog";
 import Login from "./components/Login/Login";
 import Protfolio from "./components/Protfolio/Protfolio";
 import Purchase from "./components/Purchase/Purchase";
+import AllReviews from "./components/AllReviews/AllReviews";
 
 function App() {
   return (
@@ -18,9 +19,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/portfolio" element={<Protfolio />} />
         <Route path="/purchase/:id" element={<Purchase />} />
+        <Route path="/reviews" element={<AllReviews />} />
       </Routes>
 
-      <Footer />
+      <Footer className="absolute bottom-0" />
     </div>
   );
 }
