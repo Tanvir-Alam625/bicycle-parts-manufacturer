@@ -1,6 +1,6 @@
 import React from "react";
 import Review from "../Home/Review";
-import useReviews from "../hooks/UseReviews";
+import useReviews from "../../hooks/UseReviews";
 import Spinner from "../Spinner/Spinner";
 
 const AllReviews = () => {

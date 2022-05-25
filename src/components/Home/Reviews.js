@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import useReviews from "../hooks/UseReviews";
+import useReviews from "../../hooks/UseReviews";
 import Spinner from "../Spinner/Spinner";
 import Review from "./Review";
 

@@ -35,17 +35,18 @@ const Header = () => {
       >
         <Link to="/portfolio">Portfolio</Link>
       </li>
-      {user ? (
+      {user && (
         <li
           className={`rounded-lg  font-bold ${
-            location.pathname === "/profile"
+            location.pathname === "/dashboard"
               ? "text-secondary"
               : "text-base-100"
           }`}
         >
-          <Link to="/profile">Profile</Link>
+          <Link to="/dashboard">Dashboard</Link>
         </li>
-      ) : (
+      )}
+      {!user && (
         <li
           className={`rounded-lg  font-bold ${
             location.pathname === "/login" ? "text-secondary" : "text-base-100"

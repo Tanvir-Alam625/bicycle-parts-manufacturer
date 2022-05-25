@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -6,6 +6,7 @@ import {
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const {
@@ -17,12 +18,15 @@ const Login = () => {
     useSignInWithEmailAndPassword(auth);
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
+  const [token] = useToken(user || googleUser);
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
-  if (user || googleUser) {
-    navigate(from, { replace: true });
-  }
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [from, location, token, navigate]);
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };

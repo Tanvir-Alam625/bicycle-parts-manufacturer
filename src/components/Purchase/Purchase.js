@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
@@ -14,9 +14,14 @@ const Purchase = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`)
+    fetch(`http://localhost:5000/purchase/${id}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setParts(data);
@@ -37,6 +42,7 @@ const Purchase = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
       body: JSON.stringify(orderData),
     })
@@ -52,9 +58,14 @@ const Purchase = () => {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
       body: JSON.stringify({ available: newAvailable }),
-    });
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        navigate("/dashboard/myOrder");
+      });
   };
   return (
     <div className="flex justify-center min-h-screen items-center my-12">
