@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Review from "../Home/Review";
 import useReviews from "../hooks/UseReviews";
 import Spinner from "../Spinner/Spinner";
 
 const AllReviews = () => {
-  //   const [reviews, spinner] = useReviews();
-  const [reviews, setReviews] = useState([]);
-  const { spinner, setSpinner } = useState(true);
-  useEffect(() => {
-    fetch("http://localhost:5000/reviews")
-      .then((res) => res.json())
-      .then((data) => {
-        setReviews(data);
-        setSpinner(false);
-      });
-  }, []);
+  const [reviews, spinner] = useReviews();
+
   if (spinner) {
     return <Spinner />;
   }

@@ -1,6 +1,8 @@
 import React from "react";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import auth from "../../firebase.init";
 
 const Login = () => {
   const {
@@ -8,9 +10,14 @@ const Login = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
-
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const navigate = useNavigate();
+  if (user) {
+    navigate("/");
+  }
   const onSubmit = (data) => {
-    // signInWithEmailAndPassword(data.email, data.password);
+    signInWithEmailAndPassword(data.email, data.password);
   };
   return (
     <div className="flex justify-center min-h-screen items-center">
@@ -65,9 +72,10 @@ const Login = () => {
               Forget Password?
             </Link>
           </div>
+          <p className="text-red-500">{error?.message}</p>
           <button
             type="submit"
-            // disabled={loading || googleLoading ? true : false}
+            disabled={loading ? true : false}
             className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
           >
             login

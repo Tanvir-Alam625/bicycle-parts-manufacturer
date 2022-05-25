@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useReviews from "../hooks/UseReviews";
+import Spinner from "../Spinner/Spinner";
 import Review from "./Review";
 
 const Reviews = () => {
-  const [reviews] = useReviews();
+  const [reviews, spinner] = useReviews();
   const navigate = useNavigate();
   const sameReviews = reviews.slice(0, 3);
+  if (spinner) {
+    return <Spinner />;
+  }
   return (
     <div className="lg:my-12 my-6 max-w-[1100px] mx-auto px-2">
       <h2 className="section-header text-start text-4xl font-bold text-secondary">

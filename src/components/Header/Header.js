@@ -1,8 +1,15 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MenuAlt1Icon } from "@heroicons/react/solid";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+
 const Header = () => {
+  const [user, loading, error] = useAuthState(auth);
   const location = useLocation();
+  if (error) {
+    return <p className="text-red-500">{error}</p>;
+  }
   const link = (
     <>
       <li
@@ -28,13 +35,25 @@ const Header = () => {
       >
         <Link to="/portfolio">Portfolio</Link>
       </li>
-      <li
-        className={`rounded-lg  font-bold ${
-          location.pathname === "/login" ? "text-secondary" : "text-base-100"
-        }`}
-      >
-        <Link to="/login">Login</Link>
-      </li>
+      {user ? (
+        <li
+          className={`rounded-lg  font-bold ${
+            location.pathname === "/profile"
+              ? "text-secondary"
+              : "text-base-100"
+          }`}
+        >
+          <Link to="/profile">Profile</Link>
+        </li>
+      ) : (
+        <li
+          className={`rounded-lg  font-bold ${
+            location.pathname === "/login" ? "text-secondary" : "text-base-100"
+          }`}
+        >
+          <Link to="/login">Login</Link>
+        </li>
+      )}
     </>
   );
   return (
