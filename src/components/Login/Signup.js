@@ -1,28 +1,38 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const [signInWithGoogle, googleUser, googleLoading, googleError] =
+    useSignInWithGoogle(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+  const [updateProfile, updating, profileError] = useUpdateProfile(auth);
   const navigate = useNavigate();
-  if (user) {
-    navigate("/");
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+  if (user || googleUser) {
+    navigate(from, { replace: true });
   }
-
-  const onSubmit = (data) => {
-    createUserWithEmailAndPassword(data.email, data.password);
+  const onSubmit = async (data) => {
+    await createUserWithEmailAndPassword(data.email, data.password);
+    const displayName = data.name;
+    await updateProfile({ displayName: displayName });
   };
   return (
-    <div className="flex justify-center min-h-screen items-center">
-      <div className="shadow-lg rounded-lg w-full text-accent  mx-2 p-[30px] lg:w-96 ">
+    <div className="flex justify-center min-h-screen items-center my-12">
+      <div className="shadow-lg rounded-lg w-full text-accent  bg-base-100 mx-2 p-[30px] lg:w-96 ">
         <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">
           Sign Up Now
         </h2>
@@ -82,9 +92,10 @@ const Signup = () => {
             </label>
           </div>
           <p className="text-red-500">{error?.message}</p>
+          <p className="text-red-500">{googleError?.message}</p>
           <button
             type="submit"
-            disabled={loading ? true : false}
+            disabled={loading || googleLoading ? true : false}
             className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
           >
             Sign Up
@@ -97,7 +108,10 @@ const Signup = () => {
           </Link>
         </p>
         <div className="divider mb-[25px]">OR</div>
-        <button className="uppercase border w-full border-secondary text-secondary text-xl p-[15px] rounded-lg">
+        <button
+          onClick={() => signInWithGoogle()}
+          className="uppercase border w-full border-secondary text-secondary text-xl p-[15px] rounded-lg"
+        >
           continue with Google
         </button>
       </div>

@@ -11,6 +11,7 @@ import Purchase from "./components/Purchase/Purchase";
 import AllReviews from "./components/AllReviews/AllReviews";
 import Signup from "./components/Login/Signup";
 import Profile from "./components/Profile/Profile";
+import RequireAuth from "./components/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -21,11 +22,25 @@ function App() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/login" element={<Login />} />
         <Route path="/portfolio" element={<Protfolio />} />
-        <Route path="/purchase/:id" element={<Purchase />} />
+        <Route
+          path="/purchase/:id"
+          element={
+            <RequireAuth>
+              <Purchase />
+            </RequireAuth>
+          }
+        />
         <Route path="/reviews" element={<AllReviews />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/profile"
+          element={
+            <RequireAuth>
+              <Profile />
+            </RequireAuth>
+          }
+        />
       </Routes>
 
       <Footer className="absolute bottom-0" />
