@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
+import auth from "../../firebase.init";
+import useAdmin from "../../hooks/useAdmin";
+import Spinner from "../Spinner/Spinner";
 
 const Dashboard = () => {
+  const [user] = useAuthState(auth);
+  const [admin, loading] = useAdmin(user);
+  if (loading) {
+    return <Spinner />;
+  }
   return (
     <div class="drawer drawer-mobile min-h-screen">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
@@ -16,12 +25,20 @@ const Dashboard = () => {
           <li>
             <Link to="/dashboard">My Profile</Link>
           </li>
-          <li>
-            <Link to="/dashboard/myOrder">My Order</Link>
-          </li>
-          <li>
-            <Link to="/dashboard/addReview">Add a Review</Link>
-          </li>
+          {admin ? (
+            <li>
+              <Link to="/dashboard/myOrder">Manage Order</Link>
+            </li>
+          ) : (
+            <>
+              <li>
+                <Link to="/dashboard/myOrder">My Order</Link>
+              </li>
+              <li>
+                <Link to="/dashboard/addReview">Add a Review</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>

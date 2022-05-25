@@ -1,26 +1,24 @@
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
+import auth from "../../firebase.init";
 import Spinner from "../Spinner/Spinner";
 import Order from "./Order";
 
 const MyOrder = () => {
-  //   const [orders, setOrders] = useState([]);
-  //   fetch("http://localhost:5000/orders", {
-  //     headers: {
-  //       authorization: `Bearer ${localStorage.getItem("access-token")}`,
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setOrders(data);
-  //     });
+  const [user] = useAuthState(auth);
   const {
     isLoading,
     error,
     data: orders,
     refetch,
   } = useQuery("orders", () =>
-    fetch("http://localhost:5000/orders").then((res) => res.json())
+    fetch(`http://localhost:5000/orders?email=${user.email}`, {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("access-token")}`,
+      },
+    }).then((res) => res.json())
   );
   if (isLoading) {
     return <Spinner />;
