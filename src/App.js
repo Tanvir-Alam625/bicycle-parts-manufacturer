@@ -12,6 +12,8 @@ import AllReviews from "./components/AllReviews/AllReviews";
 import Signup from "./components/Login/Signup";
 import Profile from "./components/Profile/Profile";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -44,6 +46,7 @@ function App() {
       </Routes>
 
       <Footer className="absolute bottom-0" />
+      <ToastContainer />
     </div>
   );
 }

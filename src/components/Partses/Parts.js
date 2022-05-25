@@ -2,7 +2,8 @@ import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 const Parts = ({ data, handleBuyNowBtn }) => {
-  const { _id, img, name, description, price, minimumQuantity } = data;
+  const { _id, img, name, description, price, minimumQuantity, available } =
+    data;
 
   return (
     <div class="card lg:max-w-lg bg-base-100 shadow-md hover:shadow-xl">
@@ -21,6 +22,9 @@ const Parts = ({ data, handleBuyNowBtn }) => {
           Minimum Quantity:
           <span className="font-bold">{minimumQuantity}</span>
         </p>
+        {available < 1 && (
+          <p className="py-4 px-8 rounded-lg bg-yellow-300">Out Of Stock</p>
+        )}
         <div class="card-actions justify-end">
           <button
             class="btn btn-primary text-base-100"

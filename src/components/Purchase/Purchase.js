@@ -1,25 +1,80 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const Purchase = () => {
   const { id } = useParams();
   const [user, loading, error] = useAuthState(auth);
+  const [parts, setParts] = useState({});
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/purchase/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setParts(data);
+      });
+  }, [id]);
+  const { minimumQuantity, name, available } = parts;
   const onSubmit = async (data) => {
-    console.log(data);
+    const orderData = {
+      toolName: name,
+      userName: data.name,
+      userEmail: user.email,
+      quantity: data.quantity,
+      phone: data.phone,
+      address: data.address,
+    };
+    const url = "http://localhost:5000/orders";
+    await fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(orderData),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+        if (result.insertedId) {
+          toast.success("Successfully  Your  order ");
+        }
+      });
+    const newAvailable = available - parseInt(data.quantity);
+    fetch(`http://localhost:5000/purchase/${id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ available: newAvailable }),
+    });
   };
   return (
     <div className="flex justify-center min-h-screen items-center my-12">
       <div className="shadow-lg rounded-lg w-full text-accent bg-base-100  mx-2 p-[30px] lg:w-96 ">
-        <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">Login</h2>
+        <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">
+          Order Info
+        </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="input-box mb-[10px]">
+            <label htmlFor="email">Tool Name</label>
+            <input
+              type="text"
+              {...register("toolName")}
+              id="name"
+              value={name}
+              disabled
+              readOnly
+              class="input input-bordered input-secondary w-full "
+            />
+          </div>
           <div className="input-box mb-[10px]">
             <label htmlFor="email">Full Name</label>
             <input
@@ -45,6 +100,31 @@ const Purchase = () => {
               readOnly
               class="input input-bordered input-secondary w-full "
             />
+          </div>
+          <div className="input-box mb-[20px]">
+            <label htmlFor="phone">Quantity</label>
+            <input
+              type="number"
+              class="input input-bordered input-secondary w-full "
+              {...register("quantity", {
+                required: { value: true, message: "Quantity is required" },
+                min: {
+                  value: minimumQuantity,
+                  message: `Must be minimum Quantity ${minimumQuantity}`,
+                },
+                max: {
+                  value: 1000,
+                  message: `must be maximum Quantity ${available}`,
+                },
+              })}
+              id="quantity"
+            />
+            <label htmlFor="quantity" className="text-red-400 text-xs">
+              {(errors.quantity?.type === "required" &&
+                errors.quantity?.message) ||
+                (errors.quantity?.type === "min" && errors.quantity?.message) ||
+                (errors.quantity?.type === "max" && errors.quantity?.message)}
+            </label>
           </div>
           <div className="input-box mb-[20px]">
             <label htmlFor="phone">Phone</label>
