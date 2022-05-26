@@ -1,6 +1,6 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-import { MenuAlt1Icon } from "@heroicons/react/solid";
+import { MenuAlt1Icon, MenuAlt4Icon } from "@heroicons/react/solid";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 
@@ -61,13 +61,13 @@ const Header = () => {
     <header className="bg-primary ">
       <div class="navbar  max-w-[1100px] mx-auto">
         <div class="navbar-start">
-          <div class="dropdown">
+          <div class="dropdown ">
             <label tabindex="0" class="btn btn-ghost lg:hidden">
-              <MenuAlt1Icon className="h-5 w-5 text-blue-500" />
+              <MenuAlt1Icon className="h-5 w-5 text-white" />
             </label>
             <ul
               tabindex="0"
-              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+              class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-primary rounded-box w-52"
             >
               {link}
             </ul>

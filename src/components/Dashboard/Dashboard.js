@@ -1,3 +1,4 @@
+import { MenuAlt4Icon } from "@heroicons/react/solid";
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, Outlet } from "react-router-dom";
@@ -15,6 +16,13 @@ const Dashboard = () => {
     <div class="drawer drawer-mobile min-h-screen">
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col  ">
+        <div className="navbar-end lg:hidden block w-full  ">
+          <div className="w-full flex justify-end w-full">
+            <label for="my-drawer-2" class=" m-4 drawer-button lg:hidden">
+              <MenuAlt4Icon className="h-8 text-secondary" />
+            </label>
+          </div>
+        </div>
         {/* <!-- Page content here --> */}
         <Outlet />
       </div>
