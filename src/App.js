@@ -22,6 +22,7 @@ import ManageOrders from "./components/Dashboard/ManageOrders";
 import RequireAdmin from "./components/RequireAuth/RequireAdmin";
 import UpdateProfile from "./components/Dashboard/UpdateProfile";
 import AddProduct from "./components/Dashboard/AddProduct";
+import Payment from "./components/Dashboard/Payment";
 
 function App() {
   return (
@@ -49,9 +50,31 @@ function App() {
           }
         >
           <Route index element={<MyProfile />} />
-          <Route path="/dashboard/myOrder" element={<MyOrder />} />
-          <Route path="/dashboard/addReview" element={<AddReview />} />
-          <Route path="/dashboard/updateProfile" element={<UpdateProfile />} />
+          <Route
+            path="/dashboard/myOrder"
+            element={
+              <RequireAuth>
+                <MyOrder />
+              </RequireAuth>
+            }
+          />
+          <Route
+            path="/dashboard/addReview"
+            element={
+              <RequireAuth>
+                <AddReview />
+              </RequireAuth>
+            }
+          />
+
+          <Route
+            path="/dashboard/updateProfile"
+            element={
+              <RequireAuth>
+                <UpdateProfile />
+              </RequireAuth>
+            }
+          />
           <Route
             path="/dashboard/manageOrders"
             element={
@@ -69,6 +92,14 @@ function App() {
             }
           />
         </Route>
+        <Route
+          path="/payment/:id"
+          element={
+            <RequireAuth>
+              <Payment />
+            </RequireAuth>
+          }
+        />
         <Route path="/reviews" element={<AllReviews />} />
         <Route path="/reset" element={<Reset />} />
         <Route path="/signup" element={<Signup />} />

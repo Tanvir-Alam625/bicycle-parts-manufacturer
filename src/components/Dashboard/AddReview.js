@@ -52,12 +52,13 @@ const AddReview = () => {
             placeholder="You Ratings"
             class="input input-bordered input-secondary w-full mb-[20px] "
           />
+
           <input
-            type="text"
-            name="img"
+            type="file"
             required
-            placeholder="Your Image url"
-            class="input input-bordered input-secondary w-full mb-[20px] "
+            placeholder="You Ratings"
+            class="input   w-full mb-[20px] "
+            name="image"
           />
           <textarea
             class="textarea w-full textarea-secondary mb-[20px]"

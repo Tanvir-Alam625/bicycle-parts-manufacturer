@@ -27,16 +27,20 @@ const Purchase = () => {
         setParts(data);
       });
   }, [id]);
+  console.log("product", parts);
   const { minimumQuantity, name, available } = parts;
   const onSubmit = async (data) => {
+    const quantity = parseInt(data.quantity);
     const orderData = {
       toolName: name,
+      price: quantity * parts.price,
       userName: data.name,
       userEmail: user.email,
-      quantity: data.quantity,
+      quantity: quantity,
       phone: data.phone,
       address: data.address,
     };
+    console.log("Order", orderData);
     const url = "http://localhost:5000/orders";
     await fetch(url, {
       method: "POST",
