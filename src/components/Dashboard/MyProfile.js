@@ -4,10 +4,12 @@ import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { PencilAltIcon } from "@heroicons/react/solid";
+import Spinner from "../Spinner/Spinner";
 const Profile = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
   const [profile, setProfile] = useState({});
+  const [spinner, setSpinner] = useState(true);
   useEffect(() => {
     fetch(`http://localhost:5000/profile/${user.email}`, {
       method: "GET",
@@ -17,10 +19,14 @@ const Profile = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        setSpinner(false);
         setProfile(data);
       });
   }, [user]);
-  console.log(profile);
+  const { name, email, img, country, city, location } = profile;
+  if (spinner) {
+    return <Spinner />;
+  }
   return (
     <div className="lg:my-12 my-6 w-full  mx-auto px-2 ">
       <div className="headers flex justify-between mb-[20px]">
@@ -53,6 +59,12 @@ const Profile = () => {
       <hr />
       <div className="flex flex-col lg:flex-row w-full  mt-[20px]">
         <div className="w-full lg:w-[30%] flex flex-col items-center">
+          <img
+            src={img}
+            alt="userImage"
+            className="h-[200px] rounded-lg border-2 border-secondary"
+          />{" "}
+          <br />
           <button
             onClick={() => navigate("/dashboard/updateProfile")}
             className="btn btn-outline btn-secondary  flex items-center"
@@ -63,10 +75,16 @@ const Profile = () => {
           </button>
         </div>
         <div className="profile-info w-full lg:w-[70%]">
-          <h5>Full Name</h5>
-          <h5>Email</h5>
-          <h2>{user.email}</h2>
-          <h5>Address</h5>
+          <h5 className="text-xl mt-2">Full Name</h5>
+          <h2 className="text-2xl font-semibold mb-2">{name}</h2>
+          <h5 className="text-xl mt-2">Email</h5>
+          <h2 className="text-2xl font-semibold mb-2">{user.email}</h2>
+          <h5 className="text-xl mt-2">Address</h5>
+          <h2 className="text-2xl font-semibold mb-2">
+            <span>{country}</span>
+            <span>{city}</span>
+            <span>{location}</span>
+          </h2>
         </div>
       </div>
     </div>
