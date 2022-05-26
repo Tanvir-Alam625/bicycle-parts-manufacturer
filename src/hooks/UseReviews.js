@@ -6,9 +6,11 @@ const useReviews = () => {
   fetch("http://localhost:5000/reviews")
     .then((res) => res.json())
     .then((data) => {
-      setReviews(data);
+      const myReviews = data.reverse();
+      setReviews(myReviews);
       setSpinner(false);
     });
+
   return [reviews, spinner];
 };
 export default useReviews;
