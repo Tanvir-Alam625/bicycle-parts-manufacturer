@@ -20,6 +20,8 @@ import MyOrder from "./components/Dashboard/MyOrder";
 import AddReview from "./components/Dashboard/AddReview";
 import ManageOrders from "./components/Dashboard/ManageOrders";
 import RequireAdmin from "./components/RequireAuth/RequireAdmin";
+import UpdateProfile from "./components/Dashboard/UpdateProfile";
+import AddProduct from "./components/Dashboard/AddProduct";
 
 function App() {
   return (
@@ -49,11 +51,20 @@ function App() {
           <Route index element={<MyProfile />} />
           <Route path="/dashboard/myOrder" element={<MyOrder />} />
           <Route path="/dashboard/addReview" element={<AddReview />} />
+          <Route path="/dashboard/updateProfile" element={<UpdateProfile />} />
           <Route
             path="/dashboard/manageOrders"
             element={
               <RequireAdmin>
                 <ManageOrders />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="/dashboard/addProduct"
+            element={
+              <RequireAdmin>
+                <AddProduct />
               </RequireAdmin>
             }
           />
