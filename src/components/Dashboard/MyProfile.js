@@ -9,7 +9,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/profile/${user.email}`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/profile/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

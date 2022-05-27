@@ -34,7 +34,7 @@ const UpdateProfile = () => {
             img: result.data.display_url,
             description: data.description,
           };
-          const url = `http://localhost:5000/tools`;
+          const url = `https://damp-sierra-18639.herokuapp.com/tools`;
           fetch(url, {
             method: "POST",
             headers: {

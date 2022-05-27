@@ -12,7 +12,7 @@ const ManageOrders = () => {
     data: orders,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/manageOrders`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/manageOrders`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
@@ -55,7 +55,7 @@ const ManageOrders = () => {
         <option defaultValue>All Orders</option>
         <option value="pending">Pending Orders</option>
         <option value="shipt">Shipt Orders</option>
-        <option value="unPaid">Un Paid Orders</option>
+        <option value="unPaid">Unpaid Orders</option>
       </select>
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full lg:px-2 px-0 mb-8">

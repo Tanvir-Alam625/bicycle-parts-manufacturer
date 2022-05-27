@@ -37,7 +37,7 @@ const UpdateProfile = () => {
             img: result.data.display_url,
             location: data.location,
           };
-          const url = `http://localhost:5000/profile/${user.email}`;
+          const url = `https://damp-sierra-18639.herokuapp.com/profile/${user.email}`;
           fetch(url, {
             method: "PUT",
             headers: {

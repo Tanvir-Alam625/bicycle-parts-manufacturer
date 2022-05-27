@@ -3,7 +3,7 @@ import { useState } from "react";
 const useReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [spinner, setSpinner] = useState(true);
-  fetch("http://localhost:5000/reviews")
+  fetch("https://damp-sierra-18639.herokuapp.com/reviews")
     .then((res) => res.json())
     .then((data) => {
       const myReviews = data.reverse();

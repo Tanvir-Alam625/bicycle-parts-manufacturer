@@ -14,7 +14,7 @@ const Payment = () => {
   const [order, setOrder] = useState({});
   const [spinner, setSpinner] = useState(true);
   useEffect(() => {
-    fetch(`http://localhost:5000/order/${id}`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

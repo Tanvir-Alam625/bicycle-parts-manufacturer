@@ -18,7 +18,7 @@ const UpdateProduct = () => {
     handleSubmit,
   } = useForm();
   useEffect(() => {
-    fetch(`http://localhost:5000/tool/${id}`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/tool/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
@@ -57,7 +57,7 @@ const UpdateProduct = () => {
             img: result.data.display_url,
             description: data.description,
           };
-          const url = `http://localhost:5000/tool/${_id}`;
+          const url = `https://damp-sierra-18639.herokuapp.com/tool/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {

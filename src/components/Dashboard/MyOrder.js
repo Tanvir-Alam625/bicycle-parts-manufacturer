@@ -13,12 +13,15 @@ const MyOrder = () => {
     data: orders,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`http://localhost:5000/orders?email=${user.email}`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      },
-    }).then((res) => res.json())
+    fetch(
+      `https://damp-sierra-18639.herokuapp.com/orders?email=${user.email}`,
+      {
+        method: "GET",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      }
+    ).then((res) => res.json())
   );
   if (isLoading) {
     return <Spinner />;

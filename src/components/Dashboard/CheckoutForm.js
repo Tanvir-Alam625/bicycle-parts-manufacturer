@@ -15,7 +15,7 @@ const CheckoutForm = ({ order }) => {
   const [btnSpinner, setBtnSpinner] = useState(false);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch("https://damp-sierra-18639.herokuapp.com/create-payment-intent", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -66,7 +66,7 @@ const CheckoutForm = ({ order }) => {
         setBtnSpinner(true);
         setError(" ");
         setTransactionId(paymentIntent.id);
-        fetch(`http://localhost:5000/orderPay/${_id}`, {
+        fetch(`https://damp-sierra-18639.herokuapp.com/orderPay/${_id}`, {
           method: "PATCH",
           headers: {
             "content-type": "application/json",

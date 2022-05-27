@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 
 const usePartes = () => {
-  //   fetch("http://localhost:5000/tools")
+  //   fetch("https://damp-sierra-18639.herokuapp.com/tools")
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setParts(data);
@@ -14,7 +14,7 @@ const usePartes = () => {
     data: parts,
     refetch,
   } = useQuery("parts", () =>
-    fetch(`http://localhost:5000/tools`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/tools`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

@@ -17,7 +17,7 @@ const Purchase = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/purchase/${id}`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/purchase/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
@@ -39,7 +39,7 @@ const Purchase = () => {
       phone: data.phone,
       address: data.address,
     };
-    const url = "http://localhost:5000/orders";
+    const url = "https://damp-sierra-18639.herokuapp.com/orders";
     await fetch(url, {
       method: "POST",
       headers: {
@@ -55,7 +55,7 @@ const Purchase = () => {
         }
       });
     const newAvailable = available - parseInt(data.quantity);
-    fetch(`http://localhost:5000/purchase/${id}`, {
+    fetch(`https://damp-sierra-18639.herokuapp.com/purchase/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
