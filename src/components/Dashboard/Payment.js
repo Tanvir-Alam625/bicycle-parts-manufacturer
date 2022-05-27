@@ -26,7 +26,6 @@ const Payment = () => {
         setOrder(data);
       });
   }, [id]);
-  console.log(order);
   const { userName, userEmail, address, quantity, price, toolName } = order;
   if (spinner) {
     return <Spinner />;

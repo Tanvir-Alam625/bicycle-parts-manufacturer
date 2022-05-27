@@ -33,18 +33,18 @@ const Order = ({ data, index, refetch }) => {
         {data.price && !data.paid && (
           <button
             onClick={() => navigate(`/payment/${_id}`)}
-            className="bt btn-xs btn-primary text-base-100  rounded-lg"
+            className="bt btn-xs btn-primary text-base-100 px-8 rounded-lg"
           >
             Pay
           </button>
         )}
-        {data.paid && <span className="success">Paid</span>}
+        {data.paid && <span className="text-success">Paid</span>}
       </td>
       <td>
         <button
           onClick={() => handleCancel(_id)}
           disabled={data.paid && true}
-          className="btn btn-xs btn-warning text-base-100"
+          className="btn btn-xs  btn-warning text-base-100"
         >
           Cancel
         </button>
