@@ -55,7 +55,7 @@ const UpdateProfile = () => {
       });
   };
   return (
-    <div className="m-12  border shadow rounded-lg p-6">
+    <div className="lg:m-12 m-2  border shadow rounded-lg p-6">
       <h2 className="mb-12 mt-6 text-center text-2xl text-secondary font-semibold">
         Add Parts
       </h2>

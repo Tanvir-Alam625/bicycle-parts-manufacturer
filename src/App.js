@@ -26,6 +26,7 @@ import Payment from "./components/Dashboard/Payment";
 import MakeAdmin from "./components/Dashboard/MakeAdmin";
 import ManageProducts from "./components/Dashboard/ManageProducts";
 import NotFound from "./components/NotFound/NotFound";
+import UpdateProduct from "./components/Dashboard/UpdateProduct";
 
 function App() {
   return (
@@ -107,6 +108,14 @@ function App() {
             element={
               <RequireAdmin>
                 <ManageProducts />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="/dashboard/manageProduct/:id"
+            element={
+              <RequireAdmin>
+                <UpdateProduct />
               </RequireAdmin>
             }
           />

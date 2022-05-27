@@ -1,10 +1,12 @@
 import { PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Product = ({ product, index, refetch }) => {
   const { name, img, price, minimumQuantity, available, description, _id } =
     product;
+  const navigate = useNavigate();
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Your Sure!");
     if (confirm) {
@@ -58,7 +60,10 @@ const Product = ({ product, index, refetch }) => {
         </span>
       </td>
       <td>
-        <button title="Update">
+        <button
+          onClick={() => navigate(`/dashboard/manageProduct/${_id}`)}
+          title="Update"
+        >
           <PencilAltIcon className="h-8 text-secondary" />
         </button>
       </td>
