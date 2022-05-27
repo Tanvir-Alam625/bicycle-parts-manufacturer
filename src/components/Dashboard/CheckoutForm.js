@@ -66,12 +66,14 @@ const CheckoutForm = ({ order }) => {
         setBtnSpinner(true);
         setError(" ");
         setTransactionId(paymentIntent.id);
+        console.log(paymentIntent.id);
         fetch(`http://localhost:5000/orderPay/${_id}`, {
           method: "PATCH",
           headers: {
+            "content-type": "application/json",
             authorization: `Bearer ${localStorage.getItem("access-token")}`,
           },
-          body: JSON.stringify({ transactionId: transactionId }),
+          body: JSON.stringify({ transactionId: paymentIntent.id }),
         })
           .then((res) => res.json())
           .then((result) => {

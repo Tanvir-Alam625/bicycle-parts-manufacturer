@@ -20,6 +20,7 @@ const Signup = () => {
     formState: { errors },
     handleSubmit,
   } = useForm();
+  console.log(user);
   const [updateProfile, updating, profileError] = useUpdateProfile(auth);
   const [token] = useToken(user || googleUser);
   const navigate = useNavigate();

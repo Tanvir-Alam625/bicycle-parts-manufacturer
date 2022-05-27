@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Order = ({ data, index, refetch }) => {
-  const { toolName, quantity, _id } = data;
+  const { toolName, quantity, _id, transactionId, shipment } = data;
   const navigate = useNavigate();
   const handleCancel = (id) => {
     const confirm = window.confirm("Are Your sure ?");
@@ -30,7 +30,7 @@ const Order = ({ data, index, refetch }) => {
       <td>{toolName.length > 40 ? toolName.slice(0, 40) + "..." : toolName}</td>
       <td>{quantity}</td>
       <td>
-        {data.price && !data.paid && (
+        {data.price && !transactionId && (
           <button
             onClick={() => navigate(`/payment/${_id}`)}
             className="bt btn-xs btn-primary text-base-100 px-8 rounded-lg"
@@ -38,7 +38,10 @@ const Order = ({ data, index, refetch }) => {
             Pay
           </button>
         )}
-        {data.paid && <span className="text-success">Paid</span>}
+        {transactionId && !shipment && (
+          <span className="text-success">Paid</span>
+        )}
+        {shipment && <p className="text-success">Delivered</p>}
       </td>
       <td>
         <button

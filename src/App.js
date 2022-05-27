@@ -23,6 +23,8 @@ import RequireAdmin from "./components/RequireAuth/RequireAdmin";
 import UpdateProfile from "./components/Dashboard/UpdateProfile";
 import AddProduct from "./components/Dashboard/AddProduct";
 import Payment from "./components/Dashboard/Payment";
+import MakeAdmin from "./components/Dashboard/MakeAdmin";
+import ManageProducts from "./components/Dashboard/ManageProducts";
 
 function App() {
   return (
@@ -88,6 +90,22 @@ function App() {
             element={
               <RequireAdmin>
                 <AddProduct />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="/dashboard/makeAdmin"
+            element={
+              <RequireAdmin>
+                <MakeAdmin />
+              </RequireAdmin>
+            }
+          />
+          <Route
+            path="/dashboard/manageProduct"
+            element={
+              <RequireAdmin>
+                <ManageProducts />
               </RequireAdmin>
             }
           />
