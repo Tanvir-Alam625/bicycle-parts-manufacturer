@@ -61,7 +61,7 @@ const Payment = () => {
               <div class="badge badge-secondary">card</div>
             </h2>
             <Elements stripe={stripePromise}>
-              <CheckoutForm />
+              <CheckoutForm order={order} />
             </Elements>
           </div>
         </div>
