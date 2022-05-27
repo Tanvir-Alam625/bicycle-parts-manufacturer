@@ -25,6 +25,7 @@ import AddProduct from "./components/Dashboard/AddProduct";
 import Payment from "./components/Dashboard/Payment";
 import MakeAdmin from "./components/Dashboard/MakeAdmin";
 import ManageProducts from "./components/Dashboard/ManageProducts";
+import NotFound from "./components/NotFound/NotFound";
 
 function App() {
   return (
@@ -129,6 +130,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer className="absolute bottom-0" />
