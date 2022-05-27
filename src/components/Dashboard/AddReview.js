@@ -47,7 +47,7 @@ const AddReview = () => {
             name="name"
             placeholder="Your Name"
             required
-            class="input input-bordered input-secondary w-full  mb-[20px]"
+            className="input input-bordered input-secondary w-full  mb-[20px]"
           />
           <input
             type="number"
@@ -56,17 +56,17 @@ const AddReview = () => {
             max={5}
             required
             placeholder="You Ratings"
-            class="input input-bordered input-secondary w-full mb-[20px] "
+            className="input input-bordered input-secondary w-full mb-[20px] "
           />
           <input
             type="text"
             name="img"
             required
             placeholder=" Valid Photo url"
-            class="input input-bordered input-secondary w-full mb-[20px] "
+            className="input input-bordered input-secondary w-full mb-[20px] "
           />
           <textarea
-            class="textarea w-full textarea-secondary mb-[20px]"
+            className="textarea w-full textarea-secondary mb-[20px]"
             placeholder="Message"
             name="description"
             required

@@ -31,9 +31,9 @@ const Product = ({ product, index, refetch }) => {
     >
       <th>{index + 1}</th>
       <td>
-        <div class="flex items-center space-x-3">
-          <div class="avatar">
-            <div class="mask mask-squircle w-12 h-12">
+        <div className="flex items-center space-x-3">
+          <div className="avatar">
+            <div className="mask mask-squircle w-12 h-12">
               <img
                 src={img}
                 alt="product-img"
@@ -42,10 +42,10 @@ const Product = ({ product, index, refetch }) => {
             </div>
           </div>
           <div>
-            <div title={name} class="font-bold">
+            <div title={name} className="font-bold">
               {name.length > 20 ? name.slice(0, 20) : name}
             </div>
-            <div class="text-sm opacity-50">
+            <div className="text-sm opacity-50">
               Available:{" "}
               <span className="text-secondary font-se">{available}</span>
             </div>
@@ -54,7 +54,7 @@ const Product = ({ product, index, refetch }) => {
       </td>
       <td>
         <p className="text-secondary font-semibold">${price}</p>
-        <span class="badge badge-ghost badge-sm">
+        <span className="badge badge-ghost badge-sm">
           Min Quantity:{" "}
           <span className="text-secondary">{minimumQuantity}</span>
         </span>

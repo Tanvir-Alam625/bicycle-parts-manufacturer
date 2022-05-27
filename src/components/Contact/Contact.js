@@ -56,15 +56,15 @@ const Contact = () => {
           <input
             type="text"
             placeholder="Name"
-            class="input input-secondary border-secondary w-full mb-6 "
+            className="input input-secondary border-secondary w-full mb-6 "
           />
           <input
             type="text"
             placeholder="Email"
-            class="input input-secondary  border-secondary w-full mb-6"
+            className="input input-secondary  border-secondary w-full mb-6"
           />
           <textarea
-            class="textarea textarea-secondary mb-6 w-full"
+            className="textarea textarea-secondary mb-6 w-full"
             placeholder="Message"
           ></textarea>
           <button className="btn btn-secondary">Send</button>

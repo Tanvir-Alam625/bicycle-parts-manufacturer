@@ -4,15 +4,7 @@ import Spinner from "../Spinner/Spinner";
 import ManageOrder from "./ManageOrder";
 
 const ManageOrders = () => {
-  // fetch("http://localhost:5000/manageOrders", {
-  //   headers: {
-  //     authorization: `Bearer ${localStorage.getItem("access-token")}`,
-  //   },
-  // })
-  //   .then((res) => res.json())
-  //   .then((data) => {
-  //     setOrders(data);
-  //   });
+  const [myOrders, setMyOrders] = useState(null);
 
   const {
     isLoading,
@@ -30,6 +22,25 @@ const ManageOrders = () => {
   if (isLoading) {
     return <Spinner />;
   }
+  const handleChangeOrders = (event) => {
+    console.log(event.target.value);
+
+    if (event.target.value === "All Orders") {
+      setMyOrders(orders);
+    }
+    if (event.target.value === "pending") {
+      const pending = orders.filter((order) => order.paid && !order.shipment);
+      setMyOrders(pending);
+    }
+    if (event.target.value === "shipt") {
+      const shipt = orders.filter((order) => order.shipment);
+      setMyOrders(shipt);
+    }
+    if (event.target.value === "unPaid") {
+      const unPaid = orders.filter((order) => !order.paid);
+      setMyOrders(unPaid);
+    }
+  };
   return (
     <div className="px-2">
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">
@@ -37,8 +48,17 @@ const ManageOrders = () => {
       </h2>
 
       {/* orders data in  table  */}
-      <div class="overflow-x-auto">
-        <table class="table table-zebra w-full lg:px-2 px-0 mb-8">
+      <select
+        className="select select-secondary w-full max-w-xs mb-6"
+        onChange={handleChangeOrders}
+      >
+        <option defaultValue>All Orders</option>
+        <option value="pending">Pending Orders</option>
+        <option value="shipt">Shipt Orders</option>
+        <option value="unPaid">Un Paid Orders</option>
+      </select>
+      <div className="overflow-x-auto">
+        <table className="table table-zebra w-full lg:px-2 px-0 mb-8">
           {/* <!-- head --> */}
           <thead>
             <tr>
@@ -51,15 +71,23 @@ const ManageOrders = () => {
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-
-            {orders.map((order, index) => (
-              <ManageOrder
-                key={order._id}
-                index={index}
-                order={order}
-                refetch={refetch}
-              />
-            ))}
+            {myOrders
+              ? myOrders?.map((order, index) => (
+                  <ManageOrder
+                    key={order._id}
+                    index={index}
+                    order={order}
+                    refetch={refetch}
+                  />
+                ))
+              : orders?.map((order, index) => (
+                  <ManageOrder
+                    key={order._id}
+                    index={index}
+                    order={order}
+                    refetch={refetch}
+                  />
+                ))}
           </tbody>
         </table>
       </div>

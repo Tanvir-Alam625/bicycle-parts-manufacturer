@@ -16,7 +16,10 @@ const Footer = () => {
     >
       <div className="footer-items grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-4 lg:py-12 py-8 max-w-[1100px] mx-auto">
         <div className="site-info">
-          <Link to="/" class="btn btn-ghost normal-case text-xl text-secondary">
+          <Link
+            to="/"
+            className="btn btn-ghost normal-case text-xl text-secondary"
+          >
             Bi-Cycle Parts
           </Link>
           <p className=" text-sm text-base-100 mb-6">

@@ -72,7 +72,7 @@ const UpdateProfile = () => {
                 required: { value: true, message: "name is required" },
               })}
               id="name"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.name?.type === "required" && errors.name?.message}
@@ -87,7 +87,7 @@ const UpdateProfile = () => {
               disabled
               readOnly
               value={user?.email}
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
           </div>
         </div>
@@ -100,7 +100,7 @@ const UpdateProfile = () => {
                 required: { value: true, message: "country is required" },
               })}
               id="country"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="country" className="text-red-400 text-xs">
               {errors.country?.type === "required" && errors.country?.message}
@@ -114,7 +114,7 @@ const UpdateProfile = () => {
                 required: { value: true, message: "city is required" },
               })}
               id="city"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="city" className="text-red-400 text-xs">
               {errors.city?.type === "required" && errors.city?.message}
@@ -129,7 +129,7 @@ const UpdateProfile = () => {
               required: { value: true, message: "image is required" },
             })}
             id="image"
-            class="input bg-transparent  w-full "
+            className="input bg-transparent  w-full "
           />
           <label htmlFor="image" className="text-red-400 text-xs">
             {errors.image?.type === "required" && errors.image?.message}
@@ -137,7 +137,7 @@ const UpdateProfile = () => {
         </div>
         <label htmlFor="name">Your Current location and Road Number</label>
         <textarea
-          class="textarea textarea-secondary w-full"
+          className="textarea textarea-secondary w-full"
           {...register("location", {
             required: { value: true, message: "country is required" },
           })}

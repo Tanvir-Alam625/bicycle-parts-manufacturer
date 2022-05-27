@@ -4,8 +4,8 @@ import ReactStars from "react-rating-stars-component";
 const Review = ({ data }) => {
   const { img, name, description, rating } = data;
   return (
-    <div class="card lg:max-w-lg bg-base-100 shadow-xl">
-      <div class="card-body">
+    <div className="card lg:max-w-lg bg-base-100 shadow-xl">
+      <div className="card-body">
         <div className="user flex items-center">
           <img
             src={img}

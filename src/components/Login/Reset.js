@@ -36,7 +36,7 @@ const Reset = () => {
                 },
               })}
               id="email"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="email" className="text-red-400 text-xs">
               {(errors.email?.type === "required" && errors.email?.message) ||

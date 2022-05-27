@@ -70,7 +70,7 @@ const UpdateProfile = () => {
                 required: { value: true, message: "name is required" },
               })}
               id="name"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.name?.type === "required" && errors.name?.message}
@@ -92,7 +92,7 @@ const UpdateProfile = () => {
                 },
               })}
               id="price"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.price?.type === "required" && errors.price?.message}
@@ -121,7 +121,7 @@ const UpdateProfile = () => {
                 },
               })}
               id="minimumQuantity"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.minimumQuantity?.type === "required" &&
@@ -148,7 +148,7 @@ const UpdateProfile = () => {
                 },
               })}
               id="available"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.available?.type === "required" &&
@@ -166,7 +166,7 @@ const UpdateProfile = () => {
               required: { value: true, message: " parts image is required" },
             })}
             id="image"
-            class="input bg-transparent  w-full "
+            className="input bg-transparent  w-full "
           />
           <label htmlFor="image" className="text-red-400 text-xs">
             {errors.image?.type === "required" && errors.image?.message}
@@ -174,7 +174,7 @@ const UpdateProfile = () => {
         </div>
         <label htmlFor="description">Description</label>
         <textarea
-          class="textarea textarea-secondary w-full"
+          className="textarea textarea-secondary w-full"
           {...register("description", {
             required: { value: true, message: "description is required" },
           })}

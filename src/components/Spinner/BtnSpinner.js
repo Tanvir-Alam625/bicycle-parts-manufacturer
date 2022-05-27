@@ -3,7 +3,7 @@ import "./BtnSpinner.css";
 const BtnSpinner = () => {
   return (
     <div>
-      <div class="btn-loader"></div>
+      <div className="btn-loader"></div>
     </div>
   );
 };

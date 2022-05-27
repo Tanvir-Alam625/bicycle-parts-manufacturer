@@ -14,8 +14,8 @@ const ManageProducts = () => {
         Manage Products
       </h2>
 
-      <div class="overflow-x-auto w-full mb-8">
-        <table class="table w-full">
+      <div className="overflow-x-auto w-full mb-8">
+        <table className="table w-full">
           {/* <!-- head --> */}
           <thead>
             <tr>

@@ -36,7 +36,7 @@ const ManageOrder = ({ order, index, refetch }) => {
           </button>
         )}
         {shipment && <p className="text-success">Shipt</p>}
-        {!paid && <p className="text-red-400">Not Paid</p>}
+        {!paid && <p className="text-red-400">UnPaid</p>}
       </td>
     </tr>
   );

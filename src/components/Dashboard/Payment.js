@@ -36,28 +36,28 @@ const Payment = () => {
         Please Pay Now!
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-        <div class="card lg:max-w-lg bg-base-100 shadow-xl border-2">
-          <div class="card-body">
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl border-2">
+          <div className="card-body">
             <h1 className="text-4xl text-secondary">{toolName}</h1>
-            <h2 class="card-title">
+            <h2 className="card-title">
               <p className="text-2xl ">
                 Hello, <span className="text-secondary">{userName}</span>
               </p>
             </h2>
             <p>Your Email:{userEmail}</p>
-            <div class="badge badge-secondary text-xl">
+            <div className="badge badge-secondary text-xl">
               Quantity:<span className="font-bold">{quantity}</span>
             </div>
-            <div class="badge badge-secondary text-xl">
+            <div className="badge badge-secondary text-xl">
               Total Price: <span className="font-bold"> ${price}</span>
             </div>
           </div>
         </div>
-        <div class="card lg:max-w-lg bg-base-100 shadow-xl border-2">
-          <div class="card-body">
-            <h2 class="card-title mb-8">
+        <div className="card lg:max-w-lg bg-base-100 shadow-xl border-2">
+          <div className="card-body">
+            <h2 className="card-title mb-8">
               Payment
-              <div class="badge badge-secondary">card</div>
+              <div className="badge badge-secondary">card</div>
             </h2>
             <Elements stripe={stripePromise}>
               <CheckoutForm order={order} />

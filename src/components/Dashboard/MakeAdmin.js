@@ -25,8 +25,8 @@ const MakeAdmin = () => {
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">
         Make Admin
       </h2>
-      <div class="overflow-x-auto">
-        <table class="table w-full lg:px-2 px-0">
+      <div className="overflow-x-auto">
+        <table className="table w-full lg:px-2 px-0">
           {/* <!-- head --> */}
           <thead>
             <tr>

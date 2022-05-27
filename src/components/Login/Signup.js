@@ -51,7 +51,7 @@ const Signup = () => {
                 required: { value: true, message: "Name is required" },
               })}
               id="name"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.name?.type === "required" && errors.name?.message}
@@ -69,7 +69,7 @@ const Signup = () => {
                 },
               })}
               id="email"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="email" className="text-red-400 text-xs">
               {(errors.email?.type === "required" && errors.email?.message) ||
@@ -80,7 +80,7 @@ const Signup = () => {
             <label htmlFor="password">Password</label>
             <input
               type="password"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
               {...register("password", {
                 required: { value: true, message: "Password is required" },
                 minLength: {

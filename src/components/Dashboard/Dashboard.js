@@ -13,12 +13,15 @@ const Dashboard = () => {
     return <Spinner />;
   }
   return (
-    <div class="drawer drawer-mobile min-h-screen">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content flex flex-col  ">
+    <div className="drawer drawer-mobile min-h-screen">
+      <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
+      <div className="drawer-content flex flex-col  ">
         <div className="navbar-end lg:hidden block w-full  ">
           <div className="w-full flex justify-end ">
-            <label for="my-drawer-2" class=" m-4 drawer-button lg:hidden">
+            <label
+              htmlFor="my-drawer-2"
+              className=" m-4 drawer-button lg:hidden"
+            >
               <MenuAlt4Icon className="h-8 text-secondary" />
             </label>
           </div>
@@ -26,9 +29,9 @@ const Dashboard = () => {
         {/* <!-- Page content here --> */}
         <Outlet />
       </div>
-      <div class="drawer-side">
-        <label for="my-drawer-2" class="drawer-overlay"></label>
-        <ul class="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
+      <div className="drawer-side">
+        <label for="my-drawer-2" className="drawer-overlay"></label>
+        <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
           {/* <!-- Sidebar content here --> */}
           <li>
             <Link to="/dashboard">My Profile</Link>

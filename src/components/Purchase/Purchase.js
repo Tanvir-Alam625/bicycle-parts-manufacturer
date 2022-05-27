@@ -84,7 +84,7 @@ const Purchase = () => {
               value={name}
               disabled
               readOnly
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
           </div>
           <div className="input-box mb-[10px]">
@@ -95,7 +95,7 @@ const Purchase = () => {
                 required: { value: true, message: "Name is required" },
               })}
               id="name"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
             <label htmlFor="name" className="text-red-400 text-xs">
               {errors.name?.type === "required" && errors.name?.message}
@@ -110,14 +110,14 @@ const Purchase = () => {
               value={user.email}
               disabled
               readOnly
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
             />
           </div>
           <div className="input-box mb-[20px]">
             <label htmlFor="phone">Quantity</label>
             <input
               type="number"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
               {...register("quantity", {
                 required: { value: true, message: "Quantity is required" },
                 min: {
@@ -142,7 +142,7 @@ const Purchase = () => {
             <label htmlFor="phone">Phone</label>
             <input
               type="number"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
               {...register("phone", {
                 required: { value: true, message: "phone is required" },
                 minLength: {
@@ -161,7 +161,7 @@ const Purchase = () => {
             <label htmlFor="password">Address</label>
             <input
               type="text"
-              class="input input-bordered input-secondary w-full "
+              className="input input-bordered input-secondary w-full "
               {...register("address", {
                 required: { value: true, message: "address is required" },
               })}

@@ -6,8 +6,8 @@ const Parts = ({ data, handleBuyNowBtn }) => {
     data;
 
   return (
-    <div class="card lg:max-w-lg bg-base-100 shadow-md hover:shadow-xl">
-      <div class="card-body">
+    <div className="card lg:max-w-lg bg-base-100 shadow-md hover:shadow-xl">
+      <div className="card-body">
         <img src={img} alt={name} className="h-[300px] object-cover" />
         <h2 className="card-title">{name}</h2>
         <p className="p-0 m-0" title={description}>
@@ -25,9 +25,9 @@ const Parts = ({ data, handleBuyNowBtn }) => {
         {available < 1 && (
           <p className="py-4 px-8 rounded-lg bg-yellow-300">Out Of Stock</p>
         )}
-        <div class="card-actions justify-end">
+        <div className="card-actions justify-end">
           <button
-            class="btn btn-primary text-base-100"
+            className="btn btn-primary text-base-100"
             onClick={() => handleBuyNowBtn(_id)}
           >
             Buy Now <ShoppingCartIcon className="h-4 text-base-100 ml-4" />{" "}
