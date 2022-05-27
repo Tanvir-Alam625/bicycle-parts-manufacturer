@@ -1,8 +1,28 @@
 import { PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
 import React from "react";
+import { toast } from "react-toastify";
 
 const Product = ({ product, index, refetch }) => {
-  const { name, img, price, minimumQuantity, available, description } = product;
+  const { name, img, price, minimumQuantity, available, description, _id } =
+    product;
+  const handleDeleteProduct = (id) => {
+    const confirm = window.confirm("Are Your Sure!");
+    if (confirm) {
+      fetch(`http://localhost:5000/tool/${id}`, {
+        method: "DELETE",
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("access-token")}`,
+        },
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          if (result.deletedCount > 0) {
+            toast.success(`Your ${name} Order Successfully deleted`);
+            refetch();
+          }
+        });
+    }
+  };
   return (
     <tr
       title={description.length > 100 ? description.slice(0, 100) : description}
@@ -43,8 +63,8 @@ const Product = ({ product, index, refetch }) => {
         </button>
       </td>
       <th>
-        <button title="delete">
-          <TrashIcon className="h-8 text-secondary" />
+        <button title="delete" onClick={() => handleDeleteProduct(_id)}>
+          <TrashIcon className="h-8 text-red-500" />
         </button>
       </th>
     </tr>
