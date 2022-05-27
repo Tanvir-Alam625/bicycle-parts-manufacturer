@@ -1,0 +1,54 @@
+import { PencilAltIcon, TrashIcon } from "@heroicons/react/solid";
+import React from "react";
+
+const Product = ({ product, index, refetch }) => {
+  const { name, img, price, minimumQuantity, available, description } = product;
+  return (
+    <tr
+      title={description.length > 100 ? description.slice(0, 100) : description}
+    >
+      <th>{index + 1}</th>
+      <td>
+        <div class="flex items-center space-x-3">
+          <div class="avatar">
+            <div class="mask mask-squircle w-12 h-12">
+              <img
+                src={img}
+                alt="product-img"
+                className="rounded-lg border-2 border-secondary"
+              />
+            </div>
+          </div>
+          <div>
+            <div class="font-bold">
+              {name.length > 20 ? name.slice(0, 20) : name}
+            </div>
+            <div class="text-sm opacity-50">
+              Available:{" "}
+              <span className="text-secondary font-se">{available}</span>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <p className="text-secondary font-semibold">${price}</p>
+        <span class="badge badge-ghost badge-sm">
+          Min Quantity:{" "}
+          <span className="text-secondary">{minimumQuantity}</span>
+        </span>
+      </td>
+      <td>
+        <button title="Update">
+          <PencilAltIcon className="h-8 text-secondary" />
+        </button>
+      </td>
+      <th>
+        <button title="delete">
+          <TrashIcon className="h-8 text-secondary" />
+        </button>
+      </th>
+    </tr>
+  );
+};
+
+export default Product;
