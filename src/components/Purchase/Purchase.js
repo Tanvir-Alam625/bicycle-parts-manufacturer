@@ -27,7 +27,6 @@ const Purchase = () => {
         setParts(data);
       });
   }, [id]);
-  console.log("product", parts);
   const { minimumQuantity, name, available } = parts;
   const onSubmit = async (data) => {
     const quantity = parseInt(data.quantity);
@@ -40,7 +39,6 @@ const Purchase = () => {
       phone: data.phone,
       address: data.address,
     };
-    console.log("Order", orderData);
     const url = "http://localhost:5000/orders";
     await fetch(url, {
       method: "POST",
@@ -52,7 +50,6 @@ const Purchase = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
         if (result.insertedId) {
           toast.success("Successfully  Your  order ");
         }

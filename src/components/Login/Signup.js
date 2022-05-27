@@ -8,6 +8,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
+import BtnSpinner from "../Spinner/BtnSpinner";
 
 const Signup = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
@@ -100,9 +101,9 @@ const Signup = () => {
           <button
             type="submit"
             disabled={loading || googleLoading ? true : false}
-            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
+            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px] flex justify-center"
           >
-            Sign Up
+            Sign Up{loading && <BtnSpinner className="ml-2" />}
           </button>
         </form>
         <p className="text- text-center mb-[16px]">

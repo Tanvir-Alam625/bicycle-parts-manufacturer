@@ -1,11 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import BtnSpinner from "../Spinner/BtnSpinner";
 
 const AddReview = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+  const [btnSpinner, setBtnSpinner] = useState(false);
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    setBtnSpinner(true);
     const formData = {
       email: user.email,
       name: event.target.name.value,
@@ -23,17 +28,18 @@ const AddReview = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log(result);
-        event.target.reset();
+        if (result.insertedId) {
+          event.target.reset();
+          setBtnSpinner(false);
+          navigate("/reviews");
+        }
       });
-
-    console.log(formData);
   };
   return (
     <div className=" flex flex-col justify-center items-center  pt-12">
       <div className="shadow-lg rounded-lg w-full text-accent bg-base-100 mx-2 p-[30px] lg:w-96 ">
         <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">
-          Add Review
+          Add A Review
         </h2>
         <form onSubmit={handleFormSubmit}>
           <input
@@ -52,13 +58,12 @@ const AddReview = () => {
             placeholder="You Ratings"
             class="input input-bordered input-secondary w-full mb-[20px] "
           />
-
           <input
-            type="file"
+            type="text"
+            name="img"
             required
-            placeholder="You Ratings"
-            class="input   w-full mb-[20px] "
-            name="image"
+            placeholder=" Valid Photo url"
+            class="input input-bordered input-secondary w-full mb-[20px] "
           />
           <textarea
             class="textarea w-full textarea-secondary mb-[20px]"
@@ -66,8 +71,12 @@ const AddReview = () => {
             name="description"
             required
           ></textarea>
-          <button type="submit" className="btn btn-secondary w-full">
-            Submit
+          <button
+            type="submit"
+            disabled={btnSpinner ? true : false}
+            className="btn btn-secondary w-full flex justify-center"
+          >
+            Submit {btnSpinner && <BtnSpinner className="ml-2" />}
           </button>
         </form>
       </div>

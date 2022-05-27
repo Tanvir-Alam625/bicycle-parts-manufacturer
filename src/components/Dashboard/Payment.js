@@ -1,9 +1,14 @@
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
 import Spinner from "../Spinner/Spinner";
-
+import CheckoutForm from "./CheckoutForm";
+const stripePromise = loadStripe(
+  "pk_test_51L2DloKYclWXeC9qua479l0HDahKLgcw9xnrpDfFb2d75IJeY4VCbTS69y3IKLvRTNfBLlLSoRUqIkqvqMvLdMuc00htMIAt7O"
+);
 const Payment = () => {
   const { id } = useParams();
   const [order, setOrder] = useState({});
@@ -22,13 +27,45 @@ const Payment = () => {
       });
   }, [id]);
   console.log(order);
-  const { name, email, img, country, city, location } = order;
+  const { userName, userEmail, address, quantity, price, toolName } = order;
   if (spinner) {
     return <Spinner />;
   }
   return (
-    <div>
-      <h1>{id}</h1>
+    <div className="lg:my-12 my-6 max-w-[1100px] mx-auto px-2 min-h-screen  ">
+      <h1 className="text-4xl font-semibold text-accent my-8">
+        Please Pay Now!
+      </h1>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="card lg:max-w-lg bg-base-100 shadow-xl border-2">
+          <div class="card-body">
+            <h1 className="text-4xl text-secondary">{toolName}</h1>
+            <h2 class="card-title">
+              <p className="text-2xl ">
+                Hello, <span className="text-secondary">{userName}</span>
+              </p>
+            </h2>
+            <p>Your Email:{userEmail}</p>
+            <div class="badge badge-secondary text-xl">
+              Quantity:<span className="font-bold">{quantity}</span>
+            </div>
+            <div class="badge badge-secondary text-xl">
+              Total Price: <span className="font-bold"> ${price}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card lg:max-w-lg bg-base-100 shadow-xl border-2">
+          <div class="card-body">
+            <h2 class="card-title mb-8">
+              Payment
+              <div class="badge badge-secondary">card</div>
+            </h2>
+            <Elements stripe={stripePromise}>
+              <CheckoutForm />
+            </Elements>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   useSignInWithEmailAndPassword,
   useSignInWithGoogle,
@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import useToken from "../../hooks/useToken";
+import BtnSpinner from "../Spinner/BtnSpinner";
 
 const Login = () => {
   const {
@@ -19,6 +20,7 @@ const Login = () => {
   const [signInWithGoogle, googleUser, googleLoading, googleError] =
     useSignInWithGoogle(auth);
   const [token] = useToken(user || googleUser);
+  // const [btnSpinner,setBtnSpinner]=useState(false)
   const navigate = useNavigate();
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
@@ -88,9 +90,9 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading || googleLoading ? true : false}
-            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
+            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px] flex justify-center"
           >
-            login
+            login {loading && <BtnSpinner className="ml-2" />}
           </button>
         </form>
         <p className="text- text-center mb-[16px]">
