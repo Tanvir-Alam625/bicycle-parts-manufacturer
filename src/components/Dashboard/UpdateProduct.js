@@ -1,12 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import BtnSpinner from "../Spinner/BtnSpinner";
 import Spinner from "../Spinner/Spinner";
 
 const UpdateProduct = () => {
   const { id } = useParams();
   const [products, setProducts] = useState({});
   const [spinner, setSpinner] = useState(true);
+  const [smSpinner, setSmSpinner] = useState(false);
+  const navigate = useNavigate();
+
   const {
     register,
     formState: { errors },
@@ -30,8 +35,47 @@ const UpdateProduct = () => {
   }
   const { name, img, price, minimumQuantity, available, description, _id } =
     products;
+  const imageApiKey = "be60a862641e549cc4f82067a1232062";
   const onSubmit = (data) => {
-    console.log(data);
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageApiKey}`;
+    setSmSpinner(true);
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.success) {
+          const UpdateParts = {
+            name: data.name,
+            price: data.price,
+            minimumQuantity: data.minimumQuantity,
+            available: data.available,
+            img: result.data.display_url,
+            description: data.description,
+          };
+          const url = `http://localhost:5000/tool/${_id}`;
+          fetch(url, {
+            method: "PUT",
+            headers: {
+              "content-type": "application/json",
+              authorization: `Bearer ${localStorage.getItem("access-token")}`,
+            },
+            body: JSON.stringify(UpdateParts),
+          })
+            .then((res) => res.json())
+            .then((result) => {
+              if (result.acknowledged === true) {
+                setSmSpinner(false);
+                toast.success("Successfully Added Parts!");
+                navigate("/dashboard/manageProduct");
+              }
+            });
+        }
+      });
   };
   return (
     <div>
@@ -40,7 +84,7 @@ const UpdateProduct = () => {
           <img src={img} alt="product-img" className="h-[300px] rounded-lg " />
         </div>
         <div className="product-info w-full lg:w-[70%]  my-4 px-2">
-          <h2 className="mb-12 mt-6 text-center text-4xl text-secondary font-semibold">
+          <h2 className="mb-12 mt-6  text-4xl text-secondary font-semibold">
             {name}
           </h2>
           <p className="text-xl font-semibold">
@@ -189,11 +233,11 @@ const UpdateProduct = () => {
           <div className="submitBtn w-full my-[20px]">
             <button
               className="btn btn-secondary px-12"
-              //   disabled={smSpinner ? true : false}
+              disabled={smSpinner ? true : false}
               type="submit"
             >
               Update Parts
-              {/* {smSpinner && <BtnSpinner />} */}
+              {smSpinner && <BtnSpinner />}
             </button>
           </div>
         </form>

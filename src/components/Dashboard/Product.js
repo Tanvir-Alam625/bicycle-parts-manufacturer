@@ -42,7 +42,7 @@ const Product = ({ product, index, refetch }) => {
             </div>
           </div>
           <div>
-            <div class="font-bold">
+            <div title={name} class="font-bold">
               {name.length > 20 ? name.slice(0, 20) : name}
             </div>
             <div class="text-sm opacity-50">
