@@ -17,7 +17,7 @@ const Dashboard = () => {
       <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
       <div class="drawer-content flex flex-col  ">
         <div className="navbar-end lg:hidden block w-full  ">
-          <div className="w-full flex justify-end w-full">
+          <div className="w-full flex justify-end ">
             <label for="my-drawer-2" class=" m-4 drawer-button lg:hidden">
               <MenuAlt4Icon className="h-8 text-secondary" />
             </label>

@@ -90,7 +90,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={loading || googleLoading ? true : false}
-            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px] flex justify-center"
+            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px] flex items-center justify-center"
           >
             login {loading && <BtnSpinner className="ml-2" />}
           </button>

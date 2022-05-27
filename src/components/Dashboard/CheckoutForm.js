@@ -66,7 +66,6 @@ const CheckoutForm = ({ order }) => {
         setBtnSpinner(true);
         setError(" ");
         setTransactionId(paymentIntent.id);
-        console.log(paymentIntent.id);
         fetch(`http://localhost:5000/orderPay/${_id}`, {
           method: "PATCH",
           headers: {

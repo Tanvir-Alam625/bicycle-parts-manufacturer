@@ -74,7 +74,7 @@ const AddReview = () => {
           <button
             type="submit"
             disabled={btnSpinner ? true : false}
-            className="btn btn-secondary w-full flex justify-center"
+            className="btn btn-secondary w-full flex items-center justify-center"
           >
             Submit {btnSpinner && <BtnSpinner className="ml-2" />}
           </button>
