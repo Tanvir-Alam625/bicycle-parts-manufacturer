@@ -1,8 +1,28 @@
-# Getting Started with Create React App
+# BiCycle Pars
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Live Site Link](https://parts-manufacturer-1afc8.web.app).
 
-## Available Scripts
+[Server Code Link](https://github.com/programming-hero-web-course1/manufacturer-website-server-side-Tanvir-Alam625).
+
+## Stored website
+
+## Project details in bullet points
+
+- This is a BiCycle Pars website.
+
+* Through this website many products can be delivered and managed to the customer according to the minimum quantity.
+
+* The customer will be able to review the product as required after purchasing it on the website.
+
+* The client side of this project is hosted on firebase.
+
+* And the server site has been deployed in heroku.
+
+* Payment method is added through stripe JS
+
+* Used component DaisyUI.
+
+* Uses All Tools= react, node, express, mongodb etc.
 
 In the project directory, you can run:
 
