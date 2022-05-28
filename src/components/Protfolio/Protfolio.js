@@ -155,6 +155,44 @@ const Protfolio = () => {
         {" "}
         My Best Work
       </h3>
+      <div className="grid grd-cols-1 md:grid-cols-2 gap-4 my-12">
+        <div className="wb flex justify-center items-center px-4  py-8  flex-col border shadow-md">
+          <h2 className="text-secondary font-semibold text-xl  capitalize">
+            Stone Ware House management
+          </h2>
+          <a
+            href="https://stone-ware-house.web.app/"
+            target="_blank"
+            className="py-2 px-8   my-6 btn btn-outline btn-secondary"
+          >
+            Live Site Link
+          </a>
+        </div>
+        <div className="wb flex justify-center items-center px-4  py-8  flex-col border shadow-md">
+          <h2 className="text-secondary font-semibold text-xl  capitalize">
+            Unique Article
+          </h2>
+          <a
+            href="https://cool-bubblegum-f0f8a9.netlify.app/"
+            target="_blank"
+            className="py-2 px-8   my-6 btn btn-outline btn-secondary"
+          >
+            Live Site Link
+          </a>
+        </div>
+        <div className="wb flex justify-center items-center px-4  py-8  flex-col border shadow-md ">
+          <h2 className="text-secondary font-semibold text-xl  capitalize">
+            Adelaide Hills Convention Center
+          </h2>
+          <a
+            href="https://adelaide-hills-convention-center.netlify.app/"
+            target="_blank"
+            className="py-2 px-8   my-6 btn btn-outline btn-secondary"
+          >
+            Live Site Link
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
