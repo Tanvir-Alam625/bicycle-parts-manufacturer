@@ -7,12 +7,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -40,9 +34,29 @@
   left: 0;
   border-radius: 0 20px 20px 0;
 }
+
 .subscribe-container {
   background-image: linear-gradient(rgba(55, 66, 66, 0.5), rgba(0, 0, 0, 0.322)),
     url(".//image/robert-bye-tG36rvCeqng-unsplash\ \(1\).jpg");
   background-size: cover;
   object-fit: cover;
+}
+.name-info {
+  position: relative;
+}
+.name-info:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  background-color: rgb(130, 15, 192);
+  left: 0;
+  bottom: 0;
+  border-radius: 20px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
