@@ -16,7 +16,7 @@ const Partses = () => {
   return (
     <section className="lg:my-12 my-6 max-w-[1100px] mx-auto px-2">
       <h2 className="section-header text-start text-4xl font-bold text-secondary">
-        Ours Parts
+        Ours Pars
       </h2>
       <div className="parts-items grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-12 ">
         {parts.map((part) => (

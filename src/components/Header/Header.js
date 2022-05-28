@@ -76,7 +76,7 @@ const Header = () => {
             to="/"
             className="btn btn-ghost normal-case text-xl text-secondary"
           >
-            Bi-Cycle Parts
+            Bi-Cycle Pars
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">

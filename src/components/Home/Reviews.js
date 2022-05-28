@@ -7,7 +7,7 @@ import Review from "./Review";
 const Reviews = () => {
   const [reviews, spinner] = useReviews();
   const navigate = useNavigate();
-  const MostRecentReviews = reviews.slice(0, 3);
+  const MostRecentReviews = reviews.slice(0, 6);
   if (spinner) {
     return <Spinner />;
   }

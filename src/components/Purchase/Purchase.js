@@ -4,11 +4,14 @@ import { useForm } from "react-hook-form";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import BtnSpinner from "../Spinner/BtnSpinner";
+import Spinner from "../Spinner/Spinner";
 
 const Purchase = () => {
   const { id } = useParams();
   const [user, loading, error] = useAuthState(auth);
   const [parts, setParts] = useState({});
+  const [btnSpinner, setBtnSpinner] = useState(false);
   const {
     register,
     formState: { errors },
@@ -27,9 +30,16 @@ const Purchase = () => {
         setParts(data);
       });
   }, [id]);
+  if (loading) {
+    return <Spinner />;
+  }
+  if (error) {
+    return <h2 className="text-2xl ">{error.message}</h2>;
+  }
   const { minimumQuantity, name, available } = parts;
   const onSubmit = async (data) => {
     const quantity = parseInt(data.quantity);
+    setBtnSpinner(true);
     const orderData = {
       toolName: name,
       price: quantity * parts.price,
@@ -66,6 +76,7 @@ const Purchase = () => {
       .then((res) => res.json())
       .then((result) => {
         navigate("/dashboard/myOrder");
+        setBtnSpinner(false);
       });
   };
   return (
@@ -76,7 +87,7 @@ const Purchase = () => {
         </h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="input-box mb-[10px]">
-            <label htmlFor="email">Tool Name</label>
+            <label htmlFor="email">Pars Name</label>
             <input
               type="text"
               {...register("toolName")}
@@ -173,9 +184,10 @@ const Purchase = () => {
           </div>
           <button
             type="submit"
-            className="uppercase text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
+            disabled={btnSpinner ? true : false}
+            className="uppercase flex justify-center items-center text-base-100 mb-[15px] bg-secondary w-full rounded-lg p-[15px]"
           >
-            Submit
+            Submit{btnSpinner && <BtnSpinner />}
           </button>
         </form>
       </div>

@@ -51,6 +51,9 @@ const Payment = () => {
             <div className="badge badge-secondary text-xl">
               Total Price: <span className="font-bold"> ${price}</span>
             </div>
+            <div className="text-xs">
+              Address: <span className="font-bold"> ${address}</span>
+            </div>
           </div>
         </div>
         <div className="card lg:max-w-lg bg-base-100 shadow-xl border-2">

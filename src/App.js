@@ -12,7 +12,7 @@ import AllReviews from "./components/AllReviews/AllReviews";
 import Signup from "./components/Login/Signup";
 import Profile from "./components/Profile/Profile";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import MyProfile from "./components/Dashboard/MyProfile";
@@ -27,8 +27,31 @@ import MakeAdmin from "./components/Dashboard/MakeAdmin";
 import ManageProducts from "./components/Dashboard/ManageProducts";
 import NotFound from "./components/NotFound/NotFound";
 import UpdateProduct from "./components/Dashboard/UpdateProduct";
+import { useEffect, useState } from "react";
 
 function App() {
+  let [online, isOnline] = useState(navigator.onLine);
+  const setOnline = () => {
+    toast.success("Successfully Connection!");
+    isOnline(true);
+  };
+  const setOffline = () => {
+    toast.warn("Your Internet  Connection lost Same issue!");
+
+    isOnline(false);
+  };
+
+  // Register the event listeners
+  useEffect(() => {
+    window.addEventListener("offline", setOffline);
+    window.addEventListener("online", setOnline);
+
+    // cleanup if we unmount
+    return () => {
+      window.removeEventListener("offline", setOffline);
+      window.removeEventListener("online", setOnline);
+    };
+  }, [online]);
   return (
     <div className="bg-slate-100 font-mono">
       <Header />

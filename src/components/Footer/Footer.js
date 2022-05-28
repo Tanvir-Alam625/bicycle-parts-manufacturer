@@ -20,7 +20,7 @@ const Footer = () => {
             to="/"
             className="btn btn-ghost normal-case text-xl text-secondary"
           >
-            Bi-Cycle Parts
+            Bi-Cycle Pars
           </Link>
           <p className=" text-sm text-base-100 mb-6">
             This is in the generic definition, a rod that serves to attach a
@@ -88,7 +88,7 @@ const Footer = () => {
       </div>
       <div className="flex justify-center">
         <small className=" text-base-100 my-6">
-          Copyright © 2022 Bi-Cycle Parts
+          Copyright © 2022 Bi-Cycle Pars
         </small>
       </div>
     </footer>

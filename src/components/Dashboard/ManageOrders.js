@@ -63,7 +63,7 @@ const ManageOrders = () => {
           <thead>
             <tr>
               <th>No</th>
-              <th>Parts Name</th>
+              <th>Pars Name</th>
               <th>Email</th>
               <th>Quantity</th>
               <th>Shipment</th>

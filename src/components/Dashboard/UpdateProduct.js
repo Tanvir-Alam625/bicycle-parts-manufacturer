@@ -110,7 +110,7 @@ const UpdateProduct = () => {
         <form className="w-full  " onSubmit={handleSubmit(onSubmit)}>
           <div className="inputGroup flex  flex-col lg:flex-row w-full mb-[10px]">
             <div className="input-box mb-[10px] w-full lg:w-[50%] lg:mr-4 mr-0">
-              <label htmlFor="name">Parts Name</label>
+              <label htmlFor="name">Pars Name</label>
               <input
                 type="text"
                 {...register("name", {
@@ -124,7 +124,7 @@ const UpdateProduct = () => {
               </label>
             </div>
             <div className="input-box mb-[10px] w-full lg:w-[50%]">
-              <label htmlFor="price">Per Parts Price</label>
+              <label htmlFor="price">Per Pars Price</label>
               <input
                 type="number"
                 {...register("price", {
@@ -180,7 +180,7 @@ const UpdateProduct = () => {
               </label>
             </div>
             <div className="input-box mb-[10px] w-full lg:w-[50%]">
-              <label htmlFor="available">Total Parts</label>
+              <label htmlFor="available">Total Pars</label>
               <input
                 type="number"
                 {...register("available", {
@@ -206,7 +206,7 @@ const UpdateProduct = () => {
             </div>
           </div>
           <div className="input-box mb-[10px] w-full lg:w-[50%] bg-transparent">
-            <label htmlFor="img">Parts Photo</label>
+            <label htmlFor="img">Pars Photo</label>
             <input
               type="file"
               {...register("image", {
@@ -236,7 +236,7 @@ const UpdateProduct = () => {
               disabled={smSpinner ? true : false}
               type="submit"
             >
-              Update Parts
+              Update Pars
               {smSpinner && <BtnSpinner />}
             </button>
           </div>
