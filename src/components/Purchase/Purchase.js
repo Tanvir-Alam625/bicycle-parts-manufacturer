@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import BtnSpinner from "../Spinner/BtnSpinner";
 import Spinner from "../Spinner/Spinner";
 
@@ -81,6 +82,7 @@ const Purchase = () => {
   };
   return (
     <div className="flex justify-center min-h-screen items-center my-12">
+      <MyHelmet title={`Purchase`} />
       <div className="shadow-lg rounded-lg w-full text-accent bg-base-100  mx-2 p-[30px] lg:w-96 ">
         <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">
           Order Info

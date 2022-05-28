@@ -1,5 +1,6 @@
 import React from "react";
 import usePartes from "../../hooks/usePartes";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import Spinner from "../Spinner/Spinner";
 import Product from "./Product";
 
@@ -10,6 +11,8 @@ const ManageProducts = () => {
   }
   return (
     <div className="px-2">
+      <MyHelmet title={`Manage Products`} />
+
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">
         Manage Products
       </h2>

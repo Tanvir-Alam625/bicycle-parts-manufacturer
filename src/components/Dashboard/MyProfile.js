@@ -4,6 +4,7 @@ import auth from "../../firebase.init";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import { PencilAltIcon } from "@heroicons/react/solid";
+import MyHelmet from "../MyHelmet/MyHelmet";
 const Profile = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ const Profile = () => {
   const { name, email, img, country, city, location } = profile;
   return (
     <div className="lg:my-12 my-6 w-full  mx-auto px-2 ">
+      <MyHelmet title={`My Profile`} />
+
       <div className="headers flex justify-between mb-[20px]">
         <h2 className="text-2xl font-semibold text-secondary">Profile</h2>
         {!profile.name && (

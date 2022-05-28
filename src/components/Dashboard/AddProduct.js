@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import BtnSpinner from "../Spinner/BtnSpinner";
 
 const UpdateProfile = () => {
@@ -56,6 +57,7 @@ const UpdateProfile = () => {
   };
   return (
     <div className="lg:m-12 m-2  border shadow rounded-lg p-6">
+      <MyHelmet title={`Add Product`} />
       <h2 className="mb-12 mt-6 text-center text-2xl text-secondary font-semibold">
         Add Parts
       </h2>

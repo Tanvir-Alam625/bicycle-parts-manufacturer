@@ -1,5 +1,6 @@
 import React from "react";
 import { useQuery } from "react-query";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import Spinner from "../Spinner/Spinner";
 import User from "./User";
 const MakeAdmin = () => {
@@ -22,6 +23,8 @@ const MakeAdmin = () => {
   }
   return (
     <div className="px-2 py-4">
+      <MyHelmet title={`Make Admin`} />
+
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">
         Make Admin
       </h2>

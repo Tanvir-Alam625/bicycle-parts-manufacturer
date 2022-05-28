@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import BtnSpinner from "../Spinner/BtnSpinner";
 import Spinner from "../Spinner/Spinner";
 
@@ -79,6 +80,8 @@ const UpdateProduct = () => {
   };
   return (
     <div>
+      <MyHelmet title={`Update Product`} />
+
       <div className="flex flex-col lg:flex-row m-2 lg:m-12 border shadow-lg rounded-lg ">
         <div className="product-img w-full lg:w-[30%] flex my-4  px-2 justify-center items-center">
           <img src={img} alt="product-img" className="h-[300px] rounded-lg " />

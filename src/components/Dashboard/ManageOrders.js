@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import Spinner from "../Spinner/Spinner";
 import ManageOrder from "./ManageOrder";
 
@@ -43,6 +44,8 @@ const ManageOrders = () => {
   };
   return (
     <div className="px-2">
+      <MyHelmet title={`Manage Orders`} />
+
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">
         Manage Orders
       </h2>

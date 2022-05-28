@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../firebase.init";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import BtnSpinner from "../Spinner/BtnSpinner";
 
 const UpdateProfile = () => {
@@ -58,6 +59,8 @@ const UpdateProfile = () => {
   };
   return (
     <div className="m-12  border shadow rounded-lg p-6">
+      <MyHelmet title={`Update Profile`} />
+
       <h2 className="mb-12 mt-6 text-center text-2xl text-secondary font-semibold">
         Update Profile
       </h2>

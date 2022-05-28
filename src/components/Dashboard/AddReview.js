@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import BtnSpinner from "../Spinner/BtnSpinner";
 
 const AddReview = () => {
@@ -37,6 +38,8 @@ const AddReview = () => {
   };
   return (
     <div className=" flex flex-col justify-center items-center  pt-12">
+      <MyHelmet title={`Add Reviews`} />
+
       <div className="shadow-lg rounded-lg w-full text-accent bg-base-100 mx-2 p-[30px] lg:w-96 ">
         <h2 className="text-center text-[30px] mt-[15px]  mb-[30px]">
           Add A Review

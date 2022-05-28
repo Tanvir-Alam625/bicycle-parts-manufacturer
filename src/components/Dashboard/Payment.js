@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useParams } from "react-router-dom";
 import auth from "../../firebase.init";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import Spinner from "../Spinner/Spinner";
 import CheckoutForm from "./CheckoutForm";
 const stripePromise = loadStripe(
@@ -32,6 +33,8 @@ const Payment = () => {
   }
   return (
     <div className="lg:my-12 my-6 max-w-[1100px] mx-auto px-2 min-h-screen  ">
+      <MyHelmet title={`Payment`} />
+
       <h1 className="text-4xl font-semibold text-accent my-8">
         Please Pay Now!
       </h1>

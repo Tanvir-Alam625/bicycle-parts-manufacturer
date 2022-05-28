@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useQuery } from "react-query";
 import auth from "../../firebase.init";
+import MyHelmet from "../MyHelmet/MyHelmet";
 import Spinner from "../Spinner/Spinner";
 import Order from "./Order";
 
@@ -29,6 +30,8 @@ const MyOrder = () => {
 
   return (
     <div className="px-2">
+      <MyHelmet title={`My Orders`} />
+
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">My Order</h2>
 
       <div className="overflow-x-auto">
