@@ -7,6 +7,7 @@ import {
 import React from "react";
 
 const BusinessSummary = () => {
+  // this is  businessSummary
   return (
     <div className="lg:my-28 my-16 max-w-[1100px] mx-auto px-2">
       <h2 className="section-header text-start text-4xl font-bold text-secondary">
