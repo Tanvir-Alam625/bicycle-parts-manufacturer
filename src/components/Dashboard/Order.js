@@ -8,7 +8,7 @@ const Order = ({ data, index, refetch }) => {
   const handleCancel = (id) => {
     const confirm = window.confirm("Are Your sure ?");
     if (confirm) {
-      fetch(`https://damp-sierra-18639.herokuapp.com/order/${id}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/order/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,

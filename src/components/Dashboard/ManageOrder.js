@@ -5,7 +5,7 @@ const ManageOrder = ({ order, index, refetch }) => {
   const handleShipmentBtn = (id) => {
     const confirm = window.confirm("Are Your Sure  this Order Shipt!");
     if (confirm) {
-      fetch(`https://damp-sierra-18639.herokuapp.com/orderShipment/${_id}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/orderShipment/${_id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

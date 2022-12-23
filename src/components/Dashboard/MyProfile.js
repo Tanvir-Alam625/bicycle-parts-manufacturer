@@ -10,7 +10,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const [profile, setProfile] = useState({});
   useEffect(() => {
-    fetch(`https://damp-sierra-18639.herokuapp.com/profile/${user.email}`, {
+    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/profile/${user.email}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

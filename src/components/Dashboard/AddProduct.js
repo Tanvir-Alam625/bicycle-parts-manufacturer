@@ -35,7 +35,7 @@ const UpdateProfile = () => {
             img: result.data.display_url,
             description: data.description,
           };
-          const url = `https://damp-sierra-18639.herokuapp.com/tools`;
+          const url = `https://bicycle-pars-tanvir-alam625.onrender.com/tools`;
           fetch(url, {
             method: "POST",
             headers: {

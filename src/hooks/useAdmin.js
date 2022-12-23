@@ -6,7 +6,7 @@ const useAdmin = (user) => {
   useEffect(() => {
     const email = user?.email;
     if (email) {
-      fetch(`https://damp-sierra-18639.herokuapp.com/admin/${email}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/admin/${email}`, {
         method: "GET",
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,

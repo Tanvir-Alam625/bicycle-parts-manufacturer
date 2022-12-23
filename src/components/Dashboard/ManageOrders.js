@@ -13,7 +13,7 @@ const ManageOrders = () => {
     data: orders,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`https://damp-sierra-18639.herokuapp.com/manageOrders`, {
+    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

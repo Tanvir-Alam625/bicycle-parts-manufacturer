@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     data: users,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`https://damp-sierra-18639.herokuapp.com/users`, {
+    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/users`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

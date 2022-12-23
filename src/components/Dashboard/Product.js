@@ -10,7 +10,7 @@ const Product = ({ product, index, refetch }) => {
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Your Sure!");
     if (confirm) {
-      fetch(`https://damp-sierra-18639.herokuapp.com/tool/${id}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/tool/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,

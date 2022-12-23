@@ -2,7 +2,7 @@ import { LocationMarkerIcon, MailIcon } from "@heroicons/react/solid";
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import Background from "../../image/footer/andrew-seaman-ZKB9Bo4zCqQ-unsplash.jpg";
-import MyLocation from "../../image/footer/data=xTkMbks5K1oBF9e7fR1wHOm8LhyvBOuu2AOUW4q4mTHfJ0wW7is42R-oLZ3KTIWjUGMH9CAGsMss8frse4pLuUuFBQcdXEpmLG5k1WpcGWsZeMA4eEVaoJGEsQKU6NNV9e8R7-K3nxAGALGpVqbS90V3fTVehlfGLV_YqMTBmqIVktEiJZ39_.png";
+import MyLocation from "../../image/footer/location.png";
 const Footer = () => {
   const location = useLocation();
 
