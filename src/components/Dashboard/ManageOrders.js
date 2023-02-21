@@ -5,41 +5,43 @@ import Spinner from "../Spinner/Spinner";
 import ManageOrder from "./ManageOrder";
 
 const ManageOrders = () => {
-  const [myOrders, setMyOrders] = useState(null);
+  const [orders, setOrders] = useState(null);
 
-  const {
-    isLoading,
-    error,
-    data: orders,
-    refetch,
-  } = useQuery("orders", () =>
-    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders`, {
-      method: "GET",
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("access-token")}`,
-      },
-    }).then((res) => res.json())
-  );
-  if (isLoading) {
-    return <Spinner />;
-  }
+  useEffect(()=>{
+    fetch('https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders')
+    .then(res=> res.json())
+    .then(data=>{
+      setOrders(data);
+      console.log(data);
+    })
+  },[])
+  // const {
+  //   isLoading,
+  //   error,
+  //   data: orders,
+  //   refetch,
+  // } = useQuery("orders", () =>
+  //   fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders`)
+  //   .then((res) => res.json())
+  // );
+  let myOrders = null;
   const handleChangeOrders = (event) => {
     console.log(event.target.value);
 
     if (event.target.value === "All Orders") {
-      setMyOrders(orders);
+      myOrders(orders);
     }
     if (event.target.value === "pending") {
       const pending = orders.filter((order) => order.paid && !order.shipment);
-      setMyOrders(pending);
+      myOrders(pending);
     }
     if (event.target.value === "shipt") {
       const shipt = orders.filter((order) => order.shipment);
-      setMyOrders(shipt);
+      myOrders(shipt);
     }
     if (event.target.value === "unPaid") {
       const unPaid = orders.filter((order) => !order.paid);
-      setMyOrders(unPaid);
+      myOrders(unPaid);
     }
   };
   return (
@@ -80,7 +82,6 @@ const ManageOrders = () => {
                     key={order._id}
                     index={index}
                     order={order}
-                    refetch={refetch}
                   />
                 ))
               : orders?.map((order, index) => (
@@ -88,7 +89,6 @@ const ManageOrders = () => {
                     key={order._id}
                     index={index}
                     order={order}
-                    refetch={refetch}
                   />
                 ))}
           </tbody>

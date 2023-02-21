@@ -11,29 +11,27 @@ const MyOrder = () => {
   const {
     isLoading,
     error,
-    data: orders,
+    data:orders,
     refetch,
   } = useQuery("orders", () =>
     fetch(
       `https://bicycle-pars-tanvir-alam625.onrender.com/orders?email=${user.email}`,
       {
         method: "GET",
-        headers: {
-          authorization: `Bearer ${localStorage.getItem("access-token")}`,
-        },
       }
     ).then((res) => res.json())
   );
   if (isLoading) {
     return <Spinner />;
   }
-
+  if (orders) {
+    console.log(orders);
+  }
   return (
     <div className="px-2">
       <MyHelmet title={`My Orders`} />
 
       <h2 className="text-2xl font-semibold text-accent my-8 ml-4">My Order</h2>
-
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
           {/* <!-- head --> */}
@@ -48,14 +46,15 @@ const MyOrder = () => {
           </thead>
           <tbody>
             {/* <!-- row 1 --> */}
-            {orders?.map((order, index) => (
-              <Order
-                key={order._id}
-                data={order}
-                index={index}
-                refetch={refetch}
-              />
-            ))}
+            
+            {
+              orders?.map((order,index)=> <Order
+              key={order._id}
+              data={order}
+              index={index}
+              refetch={refetch}
+              />)
+            }
           </tbody>
         </table>
       </div>

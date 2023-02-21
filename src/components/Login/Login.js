@@ -25,10 +25,10 @@ const Login = () => {
   const location = useLocation();
   let from = location.state?.from?.pathname || "/";
   useEffect(() => {
-    if (token) {
+    if (user || googleUser) {
       navigate(from, { replace: true });
     }
-  }, [from, location, token, navigate]);
+  }, [from, location, user, navigate,googleUser]);
   const onSubmit = (data) => {
     signInWithEmailAndPassword(data.email, data.password);
   };
@@ -96,7 +96,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text- text-center mb-[16px]">
-          New to Doctors Portal?
+          New to BiCycle Parts?
           <Link to="/signup" className="text-secondary ml-2">
             Create New Account
           </Link>

@@ -27,10 +27,10 @@ const Order = ({ data, index, refetch }) => {
   return (
     <tr title={toolName}>
       <th>{index + 1}</th>
-      <td>{toolName.length > 40 ? toolName.slice(0, 40) + "..." : toolName}</td>
+      <td>{toolName?.length > 40 ? toolName?.slice(0, 40) + "..." : toolName}</td>
       <td>{quantity}</td>
       <td>
-        {data.price && !transactionId && (
+        {data?.price && !transactionId && (
           <button
             onClick={() => navigate(`/payment/${_id}`)}
             className="bt btn-xs btn-primary text-base-100 px-8 rounded-lg"
@@ -46,7 +46,7 @@ const Order = ({ data, index, refetch }) => {
       <td>
         <button
           onClick={() => handleCancel(_id)}
-          disabled={data.paid && true}
+          disabled={data?.paid && true}
           className="btn btn-xs  btn-warning text-base-100"
         >
           Cancel
