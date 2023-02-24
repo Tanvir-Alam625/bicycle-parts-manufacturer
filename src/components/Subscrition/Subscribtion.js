@@ -1,5 +1,4 @@
 import React from "react";
-import Background from "../../image/robert-bye-tG36rvCeqng-unsplash (1).jpg";
 const Subscribtion = () => {
   return (
     <section className="subscribe-container   h-[400px] w-full flex flex-col justify-center items-center  font-mono px-2">

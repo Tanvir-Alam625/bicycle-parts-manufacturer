@@ -1,22 +1,4 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
 .App-link {
   color: #61dafb;
@@ -37,7 +19,7 @@
 
 .subscribe-container {
   background-image: linear-gradient(rgba(55, 66, 66, 0.5), rgba(0, 0, 0, 0.322)),
-    url(".//image/robert-bye-tG36rvCeqng-unsplash\ \(1\).jpg");
+    url("./image/banner1.jpg");
   background-size: cover;
   object-fit: cover;
 }
@@ -53,6 +35,13 @@
   left: 0;
   bottom: 0;
   border-radius: 20px;
+}
+
+.swiper-pagination-bullet{
+  background-color: white !important;
+}
+.swiper-pagination-bullet-active{
+  background-color: purple !important;
 }
 
 @media (prefers-reduced-motion: no-preference) {
