@@ -1,6 +1,7 @@
 import React from "react";
 import { ShoppingCartIcon } from "@heroicons/react/solid";
 
+
 const Parts = ({ data, handleBuyNowBtn }) => {
   const { _id, img, name, description, price, minimumQuantity, available } =
     data;
@@ -32,7 +33,7 @@ const Parts = ({ data, handleBuyNowBtn }) => {
               className="text-sm flex justify-center items-center font-medium text-slate-100 w-full rounded-md bg-purple-500 py-2 px-4 shadow transition duration-150 ease-in-out hover:bg-purple-700"
               onClick={() => handleBuyNowBtn(_id)}
             >
-              Buy Now <ShoppingCartIcon className="ml-4 h-[1rem]" />{" "}
+              Buy Now <ShoppingCartIcon className="ml-4 h-[1rem]" />
             </button>
           </div>}
          
