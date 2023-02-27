@@ -6,32 +6,36 @@ const Parts = ({ data, handleBuyNowBtn }) => {
     data;
 
   return (
-    <div className="card lg:max-w-lg bg-base-100 shadow-md hover:shadow-xl">
-      <div className="card-body">
-        <img src={img} alt={name} className="h-[300px] object-cover" />
-        <h2 className="card-title">{name}</h2>
-        <p className="p-0 m-0" title={description}>
-          {description.length > 50
-            ? description.slice(0, 50) + "..."
-            : description}
-        </p>
-        <p className="p-0 m-0">
-          Price: <span className="font-bold">${price}</span>
-        </p>
-        <p className="p-0 m-0">
-          Minimum Quantity:
-          <span className="font-bold">{minimumQuantity}</span>
-        </p>
-        {available < 1 && (
-          <p className="py-4 px-8 rounded-lg bg-yellow-300">Out Of Stock</p>
-        )}
-        <div className="card-actions justify-end">
-          <button
-            className="btn btn-primary text-base-100"
-            onClick={() => handleBuyNowBtn(_id)}
-          >
-            Buy Now <ShoppingCartIcon className="h-4 text-base-100 ml-4" />{" "}
-          </button>
+    <div className="lg:max-w-lg bg-base-100 rounded-md shadow-md hover:shadow-xl">
+      <div className="flex flex-col items-center">
+        <img src={img} alt={name} className="max-h-72 my-1 object-cover" />
+        <div className="w-full px-2 text-slate-600">
+          <h2 className="text-xl font-extrabold p-0 m-0 ">{
+            name.length > 30 ? name?.slice(0, 30).replace(/-/g, " "): name?.replace(/-/g, " ")
+          }</h2>
+          <p className="p-0 m-0 text-xs font-normal" title={description}>
+            {description.length > 50
+              ? description.slice(0, 50) + "..."
+              : description}
+          </p>
+          <p className=" my-1 text-sm font-medium">
+            Minimum Quantity:
+            <span className="font-bold">{minimumQuantity}</span>
+          </p>
+          <p className="p-0 my-2 text-xl font-extrabold text-center text-purple-500">${price}.00</p>
+          {available < 1 ? 
+            <div className=" w-full py-2 px-4 mb-2 text-white rounded-md shadow cursor-not-allowed bg-yellow-300">
+              <p className="text-center text-sm font-medium">Out Of Stock</p>
+            </div>:
+            <div className="w-full mb-2">
+            <button
+              className="text-sm flex justify-center items-center font-medium text-slate-100 w-full rounded-md bg-purple-500 py-2 px-4 shadow transition duration-150 ease-in-out hover:bg-purple-700"
+              onClick={() => handleBuyNowBtn(_id)}
+            >
+              Buy Now <ShoppingCartIcon className="ml-4 h-[1rem]" />{" "}
+            </button>
+          </div>}
+         
         </div>
       </div>
     </div>
