@@ -24,7 +24,7 @@ body {
 }
 
 .subscribe-container {
-  background-image: linear-gradient(rgba(55, 66, 66, 0.5), rgba(0, 0, 0, 0.322)),
+  background-image: linear-gradient(rgba(141, 144, 144, 0.712), rgba(0, 0, 0, 0.322)),
     url("./image/banner1.jpg");
   background-size: cover;
   object-fit: cover;
