@@ -13,8 +13,8 @@ const BusinessSummary = () => {
       <h2 className="section-header text-start text-4xl font-bold text-secondary">
         Business Summary
       </h2>
-      <div className="stats shadow md:my-28 my-14 flex flex-col lg:flex-row justify-center">
-        <div className="stat">
+      <div className="stats shadow md:my-28 my-14 bg-transparent gap-y-2 flex flex-col lg:flex-row justify-center">
+        <div className="stat bg-base-100">
           <div className="stat-figure text-secondary">
             <UserGroupIcon className="h-8 text-secondary" />
           </div>
@@ -22,7 +22,7 @@ const BusinessSummary = () => {
           <div className="stat-value">31+</div>
           <div className="stat-desc">Yearly</div>
         </div>
-        <div className="stat">
+        <div className="stat  bg-base-100">
           <div className="stat-figure text-secondary">
             <ChartBarIcon className="h-8 text-secondary" />
           </div>
@@ -31,7 +31,7 @@ const BusinessSummary = () => {
           <div className="stat-desc">Annual</div>
         </div>
 
-        <div className="stat">
+        <div className="stat  bg-base-100">
           <div className="stat-figure text-secondary">
             <SparklesIcon className="h-8 text-secondary" />
           </div>
@@ -40,7 +40,7 @@ const BusinessSummary = () => {
           <div className="stat-desc">↗︎ 400 (22%)</div>
         </div>
 
-        <div className="stat">
+        <div className="stat  bg-base-100">
           <div className="stat-figure text-secondary">
             <ReceiptTaxIcon className="h-8 text-secondary" />
           </div>

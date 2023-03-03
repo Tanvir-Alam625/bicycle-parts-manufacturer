@@ -19,22 +19,6 @@ const Header = () => {
       >
         <Link to="/">Home</Link>
       </li>
-      <li
-        className={`rounded-lg  font-bold ${
-          location.pathname === "/blog" ? "text-secondary" : "text-base-100"
-        }`}
-      >
-        <Link to="/blog">Blog</Link>
-      </li>
-      <li
-        className={`rounded-lg  font-bold ${
-          location.pathname === "/portfolio"
-            ? "text-secondary"
-            : "text-base-100"
-        }`}
-      >
-        <Link to="/portfolio">Portfolio</Link>
-      </li>
       {user && (
         <li
           className={`rounded-lg  font-bold ${
