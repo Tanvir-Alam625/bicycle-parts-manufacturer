@@ -3,22 +3,17 @@ import { ShoppingCartIcon } from "@heroicons/react/solid";
 
 
 const Parts = ({ data, handleBuyNowBtn }) => {
-  const { _id, img, name, description, price, minimumQuantity, available } =
+  const { _id, img, name, price, minimumQuantity, available } =
     data;
 
   return (
-    <div className="lg:max-w-lg bg-base-100 rounded-md shadow-md hover:shadow-xl">
+    <div className="lg:max-w-lg bg-base-100 min-h-[450px]  rounded-md shadow-md hover:shadow-xl">
       <div className="flex flex-col items-center">
         <img src={img} alt={name} className="max-h-72 my-1 object-cover" />
         <div className="w-full px-2 text-slate-600">
           <h2 className="text-xl font-extrabold p-0 m-0 ">{
-            name.length > 30 ? name?.slice(0, 30).replace(/-/g, " "): name?.replace(/-/g, " ")
+            name.length > 25 ? name?.slice(0, 25).replace(/-/g, " "): name?.replace(/-/g, " ")
           }</h2>
-          <p className="p-0 m-0 text-xs font-normal" title={description}>
-            {description.length > 50
-              ? description.slice(0, 50) + "..."
-              : description}
-          </p>
           <p className=" my-1 text-sm font-medium">
             Minimum Quantity:
             <span className="font-bold">{minimumQuantity}</span>
