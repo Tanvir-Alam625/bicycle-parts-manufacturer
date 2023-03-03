@@ -6,7 +6,7 @@ import Parts from "./Parts";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Navigation } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 
 const Partses = () => {
   const [parts, isLoading] = usePartes();
@@ -23,42 +23,83 @@ const Partses = () => {
         Ours Pars
       </h2>
       <div className="p-4">
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        loop={{
-          speed:3000
-        }}
-        autoplay={{
-          delay:3000
-        }}
-        navigation= {{
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        }}
-        cssMode={true}
-        modules={[ Autoplay, Navigation]}
-        className="productCarousel"
-      >
-        {parts.map((part) => (
-          <SwiperSlide key={part._id}>
-            <Parts data={part} handleBuyNowBtn={handleBuyNowBtn} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
-        <div className="absolute top-0 right-0 flex gap-2 justify-end">
+        <Swiper
+          // slidesPerView={3}
+          // spaceBetween={30}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 20,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 30,
+            },
+          }}
+          loop={{
+            speed: 3000,
+          }}
+          autoplay={{
+            delay: 3000,
+          }}
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          pagination={{
+            clickable: true,
+            el: ".swiper-pagination-product",
+          }}
+          cssMode={true}
+          modules={[Autoplay, Navigation, Pagination]}
+          className="productCarousel"
+        >
+          {parts.map((part) => (
+            <SwiperSlide key={part._id}>
+              <Parts data={part} handleBuyNowBtn={handleBuyNowBtn} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div className="absolute top-0 right-0 flex gap-2 justify-end p-2">
           <div className="swiper-button-prev">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M15.75 19.5L8.25 12l7.5-7.5"
+              />
             </svg>
           </div>
           <div className="swiper-button-next">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="w-6 h-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.25 4.5l7.5 7.5-7.5 7.5"
+              />
             </svg>
           </div>
         </div>
       </div>
+      <div className="swiper-pagination-product my-2 flex justify-center gap-[5px]"></div>
     </section>
   );
 };

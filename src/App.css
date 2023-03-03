@@ -1,15 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
 
-body{
+body {
   font-family: 'Poppins', sans-serif;
 }
 
 .App-link {
   color: #61dafb;
 }
+
 .section-header {
   position: relative;
 }
+
 .section-header::after {
   position: absolute;
   content: "";
@@ -27,9 +29,11 @@ body{
   background-size: cover;
   object-fit: cover;
 }
+
 .name-info {
   position: relative;
 }
+
 .name-info:after {
   content: "";
   position: absolute;
@@ -41,14 +45,16 @@ body{
   border-radius: 20px;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
   background-color: rgb(132, 132, 132) !important;
 }
-.swiper-pagination-bullet-active{
+
+.swiper-pagination-bullet-active {
   background-color: purple !important;
 }
+
 .swiper-button-next,
-.swiper-button-prev{
+.swiper-button-prev {
   padding: 10px;
   background-color: rgba(123, 95, 126, 0.329);
   cursor: pointer;
@@ -57,8 +63,9 @@ body{
   transition: 300ms ease-in-out;
   border-radius: 7px;
 }
+
 .swiper-button-next:hover,
-.swiper-button-prev:hover{
+.swiper-button-prev:hover {
   background-color: rgba(123, 95, 126, 0.802);
 }
 
