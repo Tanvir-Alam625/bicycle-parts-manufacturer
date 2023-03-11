@@ -19,7 +19,7 @@ const AddReview = () => {
       rating: parseInt(event.target.rating.value),
       description: event.target.description.value,
     };
-    fetch("https://bicycle-pars-server-side.vercel.app/reviews", {
+    fetch("https://bicycle-server-six.vercel.app/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

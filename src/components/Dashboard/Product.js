@@ -10,7 +10,7 @@ const Product = ({ product, index, refetch }) => {
   const handleDeleteProduct = (id) => {
     const confirm = window.confirm("Are Your Sure!");
     if (confirm) {
-      fetch(`https://bicycle-pars-server-side.vercel.app/tool/${id}`, {
+      fetch(`https://bicycle-server-six.vercel.app/tool/${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem("access-token")}`,

@@ -3,7 +3,7 @@ import { useState } from "react";
 const useReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [spinner, setSpinner] = useState(true);
-  fetch("https://bicycle-pars-server-side.vercel.app/reviews")
+  fetch("https://bicycle-server-six.vercel.app/reviews")
     .then((res) => res.json())
     .then((data) => {
       const myReviews = data.reverse();

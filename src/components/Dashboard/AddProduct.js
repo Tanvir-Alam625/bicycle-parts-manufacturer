@@ -35,7 +35,7 @@ const UpdateProfile = () => {
             img: result.data.display_url,
             description: data.description,
           };
-          const url = `https://bicycle-pars-server-side.vercel.app/tools`;
+          const url = `https://bicycle-server-six.vercel.app/tools`;
           fetch(url, {
             method: "POST",
             headers: {

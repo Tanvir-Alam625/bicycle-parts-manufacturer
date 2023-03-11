@@ -19,7 +19,7 @@ const UpdateProduct = () => {
     handleSubmit,
   } = useForm();
   useEffect(() => {
-    fetch(`https://bicycle-pars-server-side.vercel.app/tool/${id}`, {
+    fetch(`https://bicycle-server-six.vercel.app/tool/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
@@ -58,7 +58,7 @@ const UpdateProduct = () => {
             img: result.data.display_url,
             description: data.description,
           };
-          const url = `https://bicycle-pars-server-side.vercel.app/tool/${_id}`;
+          const url = `https://bicycle-server-six.vercel.app/tool/${_id}`;
           fetch(url, {
             method: "PUT",
             headers: {

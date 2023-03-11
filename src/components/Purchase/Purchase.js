@@ -21,7 +21,7 @@ const Purchase = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`https://bicycle-pars-server-side.vercel.app/purchase/${id}`, {
+    fetch(`https://bicycle-server-six.vercel.app/purchase/${id}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
       },
@@ -50,7 +50,7 @@ const Purchase = () => {
       phone: data.phone,
       address: data.address,
     };
-    const url = "https://bicycle-pars-server-side.vercel.app/orders";
+    const url = "https://bicycle-server-six.vercel.app/orders";
     await fetch(url, {
       method: "POST",
       headers: {
@@ -66,7 +66,7 @@ const Purchase = () => {
         }
       });
     const newAvailable = available - parseInt(data.quantity);
-    fetch(`https://bicycle-pars-server-side.vercel.app/purchase/${id}`, {
+    fetch(`https://bicycle-server-six.vercel.app/purchase/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
