@@ -10,7 +10,7 @@ const MakeAdmin = () => {
     data: users,
     refetch,
   } = useQuery("orders", () =>
-    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/users`, {
+    fetch(`https://bicycle-pars-server-side.vercel.app/users`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

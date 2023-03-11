@@ -15,7 +15,7 @@ const MyOrder = () => {
     refetch,
   } = useQuery("orders", () =>
     fetch(
-      `https://bicycle-pars-tanvir-alam625.onrender.com/orders?email=${user.email}`,
+      `https://bicycle-pars-server-side.vercel.app/orders?email=${user.email}`,
       {
         method: "GET",
       }

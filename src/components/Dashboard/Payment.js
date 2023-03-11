@@ -15,7 +15,7 @@ const Payment = () => {
   const [order, setOrder] = useState({});
   const [spinner, setSpinner] = useState(true);
   useEffect(() => {
-    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/order/${id}`, {
+    fetch(`https://bicycle-pars-server-side.vercel.app/order/${id}`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,
