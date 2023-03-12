@@ -6,7 +6,7 @@ const usePartes = () => {
     data: parts,
     refetch,
   } = useQuery("parts", () =>
-    fetch(`https://bicycle-server-six.vercel.app/tools`, {
+    fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/tools`, {
       method: "GET",
       headers: {
         authorization: `Bearer ${localStorage.getItem("access-token")}`,

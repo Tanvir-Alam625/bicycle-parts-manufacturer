@@ -9,7 +9,7 @@ const User = ({ user, index, refetch }) => {
     const confirm = window.confirm("Are You Sure!");
     if (confirm) {
       setAddLoader(true);
-      fetch(`https://bicycle-server-six.vercel.app/makeAdmin/${id}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/makeAdmin/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",
@@ -29,7 +29,7 @@ const User = ({ user, index, refetch }) => {
     const confirm = window.confirm("Are You Sure!");
     if (confirm) {
       setRemoveLoader(true);
-      fetch(`https://bicycle-server-six.vercel.app/removeAdmin/${id}`, {
+      fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/removeAdmin/${id}`, {
         method: "PATCH",
         headers: {
           "content-type": "application/json",

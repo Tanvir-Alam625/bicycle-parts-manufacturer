@@ -8,7 +8,7 @@ const ManageOrders = () => {
   const [orders, setOrders] = useState(null);
 
   useEffect(()=>{
-    fetch('https://bicycle-server-six.vercel.app/manageOrders')
+    fetch('https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders')
     .then(res=> res.json())
     .then(data=>{
       setOrders(data);
@@ -21,7 +21,7 @@ const ManageOrders = () => {
   //   data: orders,
   //   refetch,
   // } = useQuery("orders", () =>
-  //   fetch(`https://bicycle-server-six.vercel.app/manageOrders`)
+  //   fetch(`https://bicycle-pars-tanvir-alam625.onrender.com/manageOrders`)
   //   .then((res) => res.json())
   // );
   let myOrders = null;
